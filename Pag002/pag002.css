@@ -19,8 +19,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: rgba(17, 10, 25, 0.85);
 
-    height: 100dvh;
-    min-height: 100vh;
+    height: 100vh;
     width: 100vw;
 
     display: flex;
@@ -148,11 +147,15 @@ main {
     background-color: var(--background);
     border-radius: 8px;
     width: 90%;
+    max-width: 400px;
     height: auto;
+    max-height: 60vh;
+
+    overflow-y: auto;
    
     box-shadow: 1px 2px 2px rgba(17, 10, 25, 0.85);
     padding: 20px;
-    margin: auto;
+    margin: 0;
 
     display: flex;
     flex-direction: column;

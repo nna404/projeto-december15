@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amo vc!!</title>
+    <link rel="stylesheet" href="pag004.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<main>
+    <h2 class="textpag4">Clique e descubra</h2>
+    
+    <div class="text-trigger-card" id="btnAbrirTexto">
+        <div class="card-icon"></div> <div class="card-title">Leia a carta aberta</div>
+        <div class="card-subtitle">Toque para ler</div>
+    </div>
+
+
+
+<div id="textModal" class="modal-text-overlay">
+    <div class="modal-text-box">
+        <span class="close-btn-text">&times;</span>
+        
+        <p>Obrigado!</p>
+        <div class="scrollable-content">
+            <p>Parabéns, aproveite seu dia e espero que goste disso.</p>
+            <p>É algo simples, mas gsotei de fazer, acho que agora caprichei em algo para você..</p>
+            <p>Saiba que sou um dos seus maiores admiradores, se não o maior</p>
+            <p></p>
+            <br>
+            <p>Ass: Bernardo</p>
+        </div>
+    </div>
+</div>
+
+        <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Pega os elementos
+        const btnAbrir = document.getElementById("btnAbrirTexto");
+        const modalTexto = document.getElementById("textModal");
+        const btnFechar = document.querySelector(".close-btn-text");
+
+        // Verifica se o botão existe antes de tentar configurar o clique
+        if (btnAbrir) {
+            btnAbrir.addEventListener("click", function() {
+                modalTexto.style.display = "flex";
+            });
+        } else {
+            console.error("Erro: Não achei o botão com ID 'btnAbrirTexto'");
+        }
+
+        // Configura o botão de fechar (X)
+        if (btnFechar) {
+            btnFechar.addEventListener("click", function() {
+                modalTexto.style.display = "none";
+            });
+        }
+
+        // Fecha se clicar fora da caixa
+        window.addEventListener("click", function(event) {
+            if (event.target === modalTexto) {
+                modalTexto.style.display = "none";
+            }
+        });
+    });
+        </script>
+    </main>
+</body>
+</html>

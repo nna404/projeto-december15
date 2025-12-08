@@ -1,0 +1,226 @@
+@charset "UTF-8";
+
+/* --- O Botão/Card que chama o texto --- */
+.text-trigger-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+.text-trigger-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(217, 24, 245, 0.2); /* Aquele brilho roxo maroto */
+}
+
+.card-icon { font-size: 3rem; margin-bottom: 10px; }
+.card-title { font-weight: bold; color: #fff; font-size: 1.2rem; }
+.card-subtitle { color: #aaa; font-size: 0.9rem; margin-top: 5px; }
+
+
+/* --- O MODAL DE TEXTO (A Mágica) --- */
+.modal-text-overlay {
+    display: none; /* Começa escondido */
+    position: fixed;
+    z-index: 2000; /* Bem na frente de tudo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fundo escuro focado */
+    backdrop-filter: blur(5px);
+    
+    /* Centraliza a caixa de texto */
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s;
+}
+
+/* A Caixinha do Texto em si */
+.modal-text-box {
+    background: #1a1a1a; /* Fundo sólido pra leitura ficar boa */
+    border: 1px solid #D918F5; /* Borda roxa combinando com seu tema */
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px; /* Largura máxima de leitura */
+    max-height: 80vh; /* Altura máxima (80% da tela) */
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(217, 24, 245, 0.3);
+    
+    display: flex;
+    flex-direction: column;
+}
+
+/* Título dentro do modal */
+.modal-text-box h3 {
+    color: #D918F5;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+/* Área de Rolagem do Texto */
+.scrollable-content {
+    overflow-y: auto; /* Permite rolar se o texto for grande */
+    color: #e0e0e0;
+    font-size: 1rem;
+    line-height: 1.6; /* Espaçamento bom pra ler */
+    padding-right: 10px; /* Espaço pro scroll não colar no texto */
+}
+
+/* Personaliza a barra de rolagem do texto */
+.scrollable-content::-webkit-scrollbar { width: 6px; }
+.scrollable-content::-webkit-scrollbar-thumb { background: #555; border-radius: 3px; }
+
+/* Botão Fechar (X) */
+.close-btn-text {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.close-btn-text:hover { color: #fff; }
+
+@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+:root {
+    --textshadow: #6F4675;
+    --textp: #B736CA;
+    --texth1: #D918F5;
+    --background : #322C33;
+    --fonte0: Arial, Helvetica, sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(17, 10, 25, 0.85);
+
+    height: 100dvh;
+    min-height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    
+}
+
+
+#cima {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+#botao-home {
+    display: block;
+    margin: 0;
+    padding: 10px 20px;
+    
+    color: rgba(255, 255, 255, 0.932);
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    width: 70px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
+    transition: background-color 0.3s ease;
+}
+
+.baixo {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 0;
+}
+
+
+#botao-avancar {
+    padding: 10px 20px;
+    margin: 0;
+    
+    color: rgba(255, 255, 255, 0.932);
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    width: 70px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+a:hover {
+    background-color: #D918F5;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #f0f0f0f3;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 2px;
+}
+
+
+
+article.textpag4-2 > p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #f0f0f0c4;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+main {
+    background-color: var(--background);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    max-height: 60vh;
+
+    overflow-y: auto;
+   
+    box-shadow: 1px 2px 2px rgba(17, 10, 25, 0.85);
+    padding: 20px;
+    margin: 20px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

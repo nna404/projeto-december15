@@ -19,15 +19,17 @@ body {
     font-family: Arial, sans-serif;
     background-color: rgba(17, 10, 25, 0.85);
 
-    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
     width: 100vw;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    
+
     overflow: hidden;
+    
 }
 
 
@@ -38,7 +40,7 @@ body {
 
 #botao-home {
     display: block;
-    margin: 20px auto;
+    margin: 0;
     padding: 10px 20px;
     
     color: rgba(255, 255, 255, 0.932);

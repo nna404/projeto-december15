@@ -1,0 +1,267 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+}
+
+:root {
+    --textshadow: #6F4675;
+    --textp: #B736CA;
+    --texth1: #D918F5;
+    --background : #322C33;
+    --fonte0: Arial, Helvetica, sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(17, 10, 25, 0.85);
+
+    height: 100dvh;
+    min-height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    
+}
+
+
+#cima {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+#botao-home {
+    display: block;
+    margin: 0;
+    padding: 10px 20px;
+    
+    color: rgba(255, 255, 255, 0.932);
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    width: 100px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
+    transition: background-color 0.3s ease;
+}
+
+.baixo {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 0;
+}
+
+
+#botao-avancar {
+    padding: 10px 20px;
+    margin: 0;
+    
+    color: rgba(255, 255, 255, 0.932);
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    width: 110px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
+    transition: background-color 0.3s ease;
+}
+
+#botão-voltar {
+    padding: 10px 20px;
+    margin: 0;
+    
+    color: rgba(255, 255, 255, 0.932);
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    width: 110px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
+    transition: background-color 0.3s ease;
+}
+
+
+a:hover {
+    background-color: #D918F5;
+}
+
+article.textpag3 > p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #f0f0f0f3;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 2px;
+}
+
+
+
+article.textpag3-2 > p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #f0f0f0c4;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+main {
+    background-color: var(--background);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    max-height: 60vh;
+
+    overflow-y: auto;
+   
+    box-shadow: 1px 2px 2px rgba(17, 10, 25, 0.85);
+    padding: 20px;
+    margin: 20px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#text-clique {
+    font-size: 0.5rem;
+    color: #f0f0f0c4;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+/* --- Estilo da Grade de Miniaturas --- */
+.gallery-grid {
+    display: grid;
+    /* Cria colunas que se adaptam. No mínimo 150px, no máximo o que der. */  
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: auto;
+    margin: 0 auto;
+}
+
+.gallery-thumb {
+    width: 100%;
+    height: 150px; /* Força todas a terem a mesma altura */
+    object-fit: cover; /* Corta a imagem para preencher o quadrado sem esticar */
+    object-position: top center; /* Foca no topo da imagem (início da conversa) */
+    border-radius: 10px;
+    cursor: pointer; /* Mostra a mãozinha ao passar o mouse */
+    transition: transform 0.2s, filter 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.gallery-thumb:hover {
+    transform: scale(1.05); /* Leve zoom ao passar o mouse */
+    filter: brightness(1.1);
+}
+
+
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; 
+    z-index: 1000; 
+    padding-top: 50px; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: none; /* Habilita scroll se a imagem for muito grande */
+    background-color: rgba(0,0,0,0.9); /* Fundo preto transparente */
+    backdrop-filter: blur(5px); /* Efeito de desfoque no fundo chique */
+}
+
+/* imagem dentro do modal */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 95%; /* Não deixa passar da largura da tela */
+    max-height: 90vh; /* Não deixa passar da altura da tela */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    animation: zoomIn 0.3s; /* Efeito de entrada */
+}
+
+/* Botão de fechar (X) */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+.gallery-scroll-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    
+    /* --- AQUI ESTÁ O SEGREDO --- */
+    width: 100%;
+    max-width: 400px;     /* Largura de um celular grande */
+    height: 500px;        /* Altura fixa: não deixa crescer mais que isso */
+    overflow-y: auto;     /* Cria a barra de rolagem SÓ aqui dentro */
+    margin: 0 auto;       /* Centraliza na tela */
+    
+    /* Estilo da "caixa" do feed */
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* Rolagem suave */
+    scroll-behavior: smooth;
+}
+
+/* Personalizando a barra de rolagem pra ficar bonitona (estilo dark) */
+.gallery-scroll-container::-webkit-scrollbar {
+    width: 8px;
+}
+.gallery-scroll-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+.gallery-scroll-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+.gallery-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Animaçãozinha de zoom ao abrir */
+@keyframes zoomIn {
+    from {transform:scale(0.8); opacity: 0;}
+    to {transform:scale(1); opacity: 1;}
+}

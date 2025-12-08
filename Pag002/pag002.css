@@ -21,11 +21,12 @@ body {
    
 }
 
-nav {
-    margin: auto;
+#cima {
+    display: flex;
+    justify-content: center;    
 }
 
-a {
+#botao-home {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
@@ -39,9 +40,43 @@ a {
     transition: background-color 0.3s ease;
 }
 
+.baixo {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#botão-voltar {
+    padding: 10px 20px;
+    
+    color: rgba(255, 255, 255, 0.932);
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    width: 70px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+#botao-avancar {
+    padding: 10px 20px;
+    
+    color: rgba(255, 255, 255, 0.932);
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    width: 70px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+
+
+
 a:hover {
     background-color: #D918F5;
 }
+
 
 article.textpag2 > p {
     font-family: 'Montserrat', sans-serif;
@@ -103,5 +138,5 @@ main {
    
     box-shadow: 1px 2px 2px rgba(17, 10, 25, 0.85);
     padding: 20px;
-    margin: 70px auto;
+    margin: 55px auto;
 }

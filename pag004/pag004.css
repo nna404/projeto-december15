@@ -17,7 +17,7 @@
 .text-trigger-card:hover {
     transform: translateY(-5px);
     background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 20px rgba(217, 24, 245, 0.2); /* Aquele brilho roxo maroto */
+    box-shadow: 0 10px 20px rgba(26, 1, 29, 0.2); /* Aquele brilho roxo maroto */
 }
 
 .card-icon { font-size: 3rem; margin-bottom: 10px; }
@@ -70,11 +70,13 @@
 
 /* Área de Rolagem do Texto */
 .scrollable-content {
-    overflow-y: auto; /* Permite rolar se o texto for grande */
+    overflow-y: auto; 
     color: #e0e0e0;
     font-size: 1rem;
-    line-height: 1.6; /* Espaçamento bom pra ler */
-    padding-right: 10px; /* Espaço pro scroll não colar no texto */
+    line-height: 1.6; 
+    padding-right: 10px; 
+    text-indent: 1.5em;
+    
 }
 
 /* Personaliza a barra de rolagem do texto */
@@ -159,7 +161,7 @@ body {
 }
 
 
-#botao-avancar {
+#botao-voltar {
     padding: 10px 20px;
     margin: 0;
     
@@ -223,4 +225,25 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+#title-text {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
+#love-u {
+    text-align: right;
+    margin-top: 15px;
+    color: #fd9eac;
+    font-size: 0.6rem;
+}
+
+#signature {
+    text-align: left;
+    margin-top: 10px;
+    color: #9e31b4;
+    font-size: 0.8rem;
 }

@@ -292,7 +292,7 @@ main {
 
 #music-tittle-text {
     color: #D918F5;
-    margin-top: 5px;
+    margin-top: 2px;
     text-align: center;
 }   
 
@@ -302,4 +302,15 @@ main {
     font-weight: bold;
     text-align: center;
     margin-bottom: 10px;
+}
+
+audio {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 15px;
+    outline: none;
+    /* Mágica: Inverte (fica preto) e gira a cor pra tentar achar o roxo/rosa */
+    filter: invert(100%) sepia(20%) saturate(500%) hue-rotate(260deg);
+    border-radius: 20px;
+    opacity: 0.9;
 }

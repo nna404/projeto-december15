@@ -5,21 +5,24 @@ const lyricsBox = document.getElementById('lyricsBox');
 // Coloque o tempo (em segundos) que cada frase começa
 const lyricsData = [
     { time: 0, text: "..." },
-    { time: 14, text: "Teus olhos tem um tempo particular" }, 
-    { time: 25, text: "Traz sinais de tudo que eu quero encontrar" },
-    { time: 29, text: "Teu corpo sempre faz eu esquentar" },
-    { time: 36, text: "Entra no meu tempo" },
-    { time: 38, text: "Que eu quero te mostrar" },
-    { time: 43, text: "A luz do meu amor no teu amor" }, 
-    { time: 48, text: "Sem machucar, sem machucar" },
-    { time: 54, text: "O tempo todo que a gente estiver cantando" },
-    { time: 61, text: "As gotas do tempo vão parar pra escutar" },
-    { time: 66, text: "..." },
-    { time: 72, text: "E se a gente acabar sei lá, sei lá" }, 
-    { time: 77, text: "Viver é mais importante do que pensar" },
-    { time: 83, text: "E se a gente acabar sei lá, sei lá" },
-    { time: 88, text: "Pensar nisso é perder tempo de te amar" },
-    { time: 93, text: "..." }
+    { time: 25, text: "Eu provei do amor e sei o gosto" }, 
+    { time: 32, text: "Bebi da fonte da dor e descobri" },
+    { time: 39, text: "Que no final não sobra nada" },
+    { time: 45, text: "Pra nós dois" },
+    { time: 49, text: "Passei alguns dias sozinho" },
+    { time: 56, text: "Na minha casa lá no mato" }, 
+    { time: 63, text: "Montei nosso quebra-cabeças" },
+    { time: 69, text: "O mesmo que nunca havia mudado" },
+    { time: 76, text: "Segurei nas mãos de Deus e pedi" },
+    { time: 80, text: "Ouvir o seu chamado" },
+    { time: 83, text: "Seu nome na minha boca não sei porque" }, 
+    { time: 87, text: "Soa tão amargo" },
+    { time: 90, text: "Sonho com o dia que você vai resolver ficar" },
+    { time: 103, text: "Você chora como uma mulher" },
+    { time: 107, text: "Briga como uma mulher" },
+    { time: 110, text: "Sangra como uma mulher, mas é" },
+    { time: 116, text: "Uma menina ao meu lado" },
+    { time: 119, text: "..." }
 ];
 
 // Função que cria as letras no HTML automaticamente

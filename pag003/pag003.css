@@ -175,31 +175,47 @@ main {
 }
 
 
-.modal {
-    display: none; /* Escondido por padrão */
-    position: fixed; 
-    z-index: 1000; 
-    padding-top: 50px; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: none; /* Habilita scroll se a imagem for muito grande */
-    background-color: rgba(0,0,0,0.9); /* Fundo preto transparente */
-    backdrop-filter: blur(5px); /* Efeito de desfoque no fundo chique */
+/* Container que agrupa imagem e texto no centro */
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 95%;
 }
 
-/* imagem dentro do modal */
+/* Ajuste na imagem do modal para ela não ficar solta */
 .modal-content {
     margin: auto;
     display: block;
     width: auto;
     height: auto;
-    max-width: 95%; /* Não deixa passar da largura da tela */
-    max-height: 90vh; /* Não deixa passar da altura da tela */
+    max-width: 100%; /* Agora ela respeita o modal-body */
+    max-height: 80vh; /* Deixa um espacinho pro texto embaixo */
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    animation: zoomIn 0.3s; /* Efeito de entrada */
+}
+
+/* ESTILO DO SEU NOVO TEXTO (LEGENDA) */
+#caption {
+    margin-top: 15px; /* Espaço entre a imagem e o texto */
+    color: #f1f1f1;   /* Cor do texto claro */
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    max-width: 80%;   /* Pra não ficar muito largo em telas grandes */
+    line-height: 1.5; /* Espaçamento entre linhas pra facilitar leitura */
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5); /* Um fundinho preto transparente pra destacar */
+    border-radius: 10px;
+    animation: zoomIn 0.3s; /* Aparece com efeito junto com a imagem */
+}
+
+.card-name {
+    margin-top: 10px;
+    font-size: 1.0rem;
+    color: #ebebeb;
+    text-align: center;
+    font-weight: 500;
 }
 
 /* Botão de fechar (X) */
@@ -265,3 +281,4 @@ main {
     from {transform:scale(0.8); opacity: 0;}
     to {transform:scale(1); opacity: 1;}
 }
+

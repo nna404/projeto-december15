@@ -247,3 +247,86 @@ main {
     color: #9e31b4;
     font-size: 0.8rem;
 }
+
+/* Reaproveitando estilos do modal, mas com ajustes pra senha */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    z-index: 3000; /* Bem na frente */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s;
+}
+
+.password-box {
+    background: #1a1a1a;
+    border: 1px solid #D918F5;
+    border-radius: 15px;
+    padding: 30px;
+    width: 90%;
+    max-width: 350px; /* Pequenininho e compacto */
+    text-align: center;
+    box-shadow: 0 0 20px rgba(217, 24, 245, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+}
+
+.password-box h3 { color: #fff; margin-bottom: 5px; }
+.password-box p { color: #ccc; font-size: 0.9rem; }
+
+/* O Input da Senha */
+#inputSenha {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #222;
+    color: #fff;
+    text-align: center;
+    font-size: 1.1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+#inputSenha:focus {
+    border-color: #D918F5;
+    box-shadow: 0 0 8px rgba(217, 24, 245, 0.4);
+}
+
+/* Botão Confirmar */
+#btnConfirmarSenha {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #D918F5;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#btnConfirmarSenha:hover { background: #b012c7; }
+
+/* Mensagem de Erro (escondida por padrão) */
+.error-msg {
+    color: #ff4d4d !important; /* Vermelho alerta */
+    font-size: 0.85rem !important;
+    display: none; /* Começa invisível */
+}
+
+/* O X de fechar específico da senha */
+.close-btn-senha {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 24px;
+    cursor: pointer;
+}

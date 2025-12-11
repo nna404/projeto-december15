@@ -145,3 +145,101 @@ main {
     align-items: center;
     justify-content: center;
 }
+
+.text-trigger-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+    width: 110px;
+    max-width: 200px;
+    margin: 20px auto;
+    height: 20px;
+}
+
+.text-trigger-card:hover {
+    transform: translateY(-5px);
+    background: rgba(197, 192, 197, 0.37);
+    box-shadow: 0 10px 20px rgba(26, 1, 29, 0.2); /* Aquele brilho roxo maroto */
+}
+
+.card-icon { font-size: 3rem; }
+.card-title { font-weight: bold; color: #6d248a; font-size: 1.2rem; }
+.card-subtitle { color: #782e96; font-size: 0.9rem; }
+
+
+/* --- O MODAL DE TEXTO (A Mágica) --- */
+.modal-text-overlay {
+    display: none; /* Começa escondido */
+    position: fixed;
+    z-index: 2000; /* Bem na frente de tudo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fundo escuro focado */
+    backdrop-filter: blur(5px);
+    
+    /* Centraliza a caixa de texto */
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s;
+}
+
+/* A Caixinha do Texto em si */
+.modal-text-box {
+    background: #1a1a1a; /* Fundo sólido pra leitura ficar boa */
+    border: 1px solid #D918F5; /* Borda roxa combinando com seu tema */
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px; /* Largura máxima de leitura */
+    max-height: 80vh; /* Altura máxima (80% da tela) */
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(217, 24, 245, 0.3);
+    
+    display: flex;
+    flex-direction: column;
+}
+
+/* Título dentro do modal */
+.modal-text-box h3 {
+    color: #D918F5;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+/* Área de Rolagem do Texto */
+.scrollable-content {
+    overflow-y: auto; 
+    color: #e0e0e0;
+    font-size: 1rem;
+    line-height: 1.6; 
+    padding-right: 10px; 
+    text-indent: 1.5em;
+    
+}
+
+/* Personaliza a barra de rolagem do texto */
+.scrollable-content::-webkit-scrollbar { width: 6px; }
+.scrollable-content::-webkit-scrollbar-thumb { background: #555; border-radius: 3px; }
+
+/* Botão Fechar (X) */
+.close-btn-text {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.close-btn-text:hover { color: #fff; }
+
+@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }

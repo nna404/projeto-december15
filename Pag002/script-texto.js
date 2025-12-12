@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const btnFecharSenha = document.querySelector(".close-btn-senha"); // X da senha
 
     // CONFIGURAÇÃO DA SENHA
-    const SENHA_CORRETA = "Como perder um homem em 10 dias";
+    const SENHA_CORRETA = "0";
 
 
     // --- 2. O CLIQUE INICIAL ---

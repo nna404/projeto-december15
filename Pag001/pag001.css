@@ -130,8 +130,8 @@ article.textpag1-2 > p {
 
 main {
     border-radius: 8px;
-    width: 90%;
-    max-width: 350px;
+    width: 95%;
+    max-width: 330px;
     height: auto;
     max-height: 60vh;
 
@@ -330,4 +330,11 @@ main {
     color: #aaa;
     font-size: 24px;
     cursor: pointer;
+}
+
+#title-text {
+    text-align: center;
+    color: #D918F5;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
 }

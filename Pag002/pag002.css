@@ -147,8 +147,8 @@ article.textpag2-2 > p {
 
 main {
     border-radius: 8px;
-    width: 90%;
-    max-width: 350px;
+    width: 95%;
+    max-width: 330px;
     height: auto;
     max-height: 60vh;
 
@@ -286,11 +286,12 @@ main {
 /* O ESTILO DA LINHA CANTANDO AGORA */
 .line.active {
     color: #D918F5; /* Sua cor roxa neon */
-    font-size: 1.3rem; /* Fica maior */
+    font-size: 1.2rem; /* Fica maior */
     font-weight: bold;
     opacity: 1;
     text-shadow: 0 0 10px rgba(217, 24, 245, 0.5);
     transform: scale(1.05);
+    
 }
 
 #music-tittle-text {

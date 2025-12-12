@@ -3,6 +3,7 @@
 * {
     margin: 0px;
     padding: 0px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 :root {
@@ -16,8 +17,15 @@
 article > h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
-    color: #4E1884;
-    
+    color: #5c1d9b;
+    text-align: center;
+}
+
+p {
+    font-size: 1.0rem;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 #home-article {
@@ -27,7 +35,7 @@ article > h1 {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #efeff0;
+    background-color: #08000a;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -17,7 +17,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: rgba(17, 10, 25, 0.85);
+    background-color: #08000a;
 
     height: 100dvh;
     min-height: 100vh;
@@ -51,6 +51,7 @@ body {
     width: 70px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
     transition: background-color 0.3s ease;
+    border: #9130b8 2px solid;
 }
 
 .baixo {
@@ -70,8 +71,9 @@ body {
     border-radius: 5px;
     text-align: center;
     width: 70px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
+    box-shadow: 0 4px 6px rgba(94, 6, 165, 0.349);
     transition: background-color 0.3s ease;
+    border: #9130b8 2px solid;
 }
 
 
@@ -127,10 +129,9 @@ article.textpag1-2 > p {
 }
 
 main {
-    background-color: var(--background);
     border-radius: 8px;
     width: 90%;
-    max-width: 400px;
+    max-width: 350px;
     height: auto;
     max-height: 60vh;
 
@@ -144,6 +145,9 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    border: #b012c7 2px solid;
+
 }
 
 .text-trigger-card {
@@ -167,8 +171,8 @@ main {
 }
 
 .card-icon { font-size: 3rem; }
-.card-title { font-weight: bold; color: #6d248a; font-size: 1.2rem; }
-.card-subtitle { color: #782e96; font-size: 0.9rem; }
+.card-title { font-weight: bold; color: #9130b8; font-size: 1.2rem; }
+.card-subtitle { color: #9130b8; font-size: 0.9rem; }
 
 
 /* --- O MODAL DE TEXTO (A Mágica) --- */

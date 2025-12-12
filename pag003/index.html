@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,110 +8,103 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
-    
 </head>
 <body>
    <nav class="cima">
         <a href="../index.html" id="botao-home">Home</a>
-        
-        </nav>
+   </nav>
+
     <main>
-        
-            <article class="textpag3">
-                <p>Se fosse pra descrever seu humor, eu usaria essas imagens:</p>
-                
-            </article>
+        <article class="textpag3">
+            <p>Se fosse pra descrever seu humor, eu usaria essas imagens:</p>
+        </article>
 
-            <article class="textpag3-2">
-                <p>Clique nelas para ver por completo!</p>
-                
-            </article>
+        <article class="textpag3-2">
+            <p>Clique nelas para ver por completo!</p>
+        </article>
 
-           <div class="gallery-scroll-container">
-                <div class="gallery-card">
-                    <img src="images/ling-mulheres.jpeg" class="gallery-thumb" alt="Teoria da Geladeira" 
-                    data-caption="Você explicando como funciona a linguagem das mulheres kkkkkkkkkkk">
+        <div class="gallery-scroll-container">
+            <div class="gallery-card">
+                <img src="images/ling-mulheres.jpeg" class="gallery-thumb" alt="Teoria da Geladeira" 
+                data-caption="Você explicando como funciona a linguagem das mulheres kkkkkkkkkkk">
                 <div class="card-name">Geladeira</div>
             </div>
 
             <div class="gallery-card">
                 <img src="images/perola-emoji-1.jpeg" class="gallery-thumb" alt="Revolta dos Dinos"
                 data-caption="Você e suas loucuras....">
-            <div class="card-name">Emojis parte 1</div>
+                <div class="card-name">Emojis parte 1</div>
             </div>
 
             <div class="gallery-card">
                 <img src="images/perola-emoji-2.jpeg" class="gallery-thumb" alt="Revolta dos Dinos"
                 data-caption="Eu sempre amei suas mensagens um tanto quanto imprevisiveis.">
-            <div class="card-name">Emojis parte 2</div>
+                <div class="card-name">Emojis parte 2</div>
             </div>
 
             <div class="gallery-card">
                 <img src="images/humor-alterado-1.jpeg" class="gallery-thumb" alt="Revolta dos Dinos"
                 data-caption="Uma hora você tá assim...">
-            <div class="card-name">Humor alterado 1</div>
+                <div class="card-name">Humor alterado 1</div>
             </div>
 
             <div class="gallery-card">
                 <img src="images/humor-alterado-2.jpeg" class="gallery-thumb" alt="Revolta dos Dinos"
                 data-caption="E na outra hora assim kkkkkkkk">
-            <div class="card-name">Humor alterado 2</div>
+                <div class="card-name">Humor alterado 2</div>
             </div>
 
             <div class="gallery-card">
                 <img src="images/odeia-homem.jpeg" class="gallery-thumb" alt="Revolta dos Dinos"
                 data-caption="Nunca entendi você falando mal dos homens sendo que você conversa comigo, mas tudo bem kkkkkk">
-            <div class="card-name">O seu ódio por homens</div>
+                <div class="card-name">O seu ódio por homens</div>
             </div>
 
             <div class="gallery-card">
                 <img src="images/lavar-1.jpeg" class="gallery-thumb" alt="Revolta dos Dinos"
                 data-caption="Nossas brincadeiras...">
-            <div class="card-name">Louça 1</div>
+                <div class="card-name">Louça 1</div>
             </div>
 
             <div class="gallery-card">
                 <img src="images/lavar-2.jpeg" class="gallery-thumb" alt="Revolta dos Dinos"
                 data-caption="Sempre dou risada quando releio tal conversa kkkkkk">
-            <div class="card-name">Louça 2</div>
+                <div class="card-name">Louça 2</div>
             </div>
 
             <div class="gallery-card">
                 <img src="images/toxica.jpeg" class="gallery-thumb" alt="Revolta dos Dinos"
                 data-caption="Você sendo você mesma... Mas eu sempre obedecia">
-            <div class="card-name">Tóxica?</div>
+                <div class="card-name">Tóxica?</div>
             </div>
 
             <div class="gallery-card">
                 <img src="images/medo-1.jpeg" class="gallery-thumb" alt="Revolta dos Dinos"
                 data-caption="Uma história engraçada sobre como ambos sabiamos que era só questão de tempo.">
-            <div class="card-name">Medo ou dúvida?</div>
+                <div class="card-name">Medo ou dúvida?</div>
             </div>
 
             <div class="gallery-card">
                 <img src="images/medo-2.jpeg" class="gallery-thumb" alt="Revolta dos Dinos"
                 data-caption="Você quando admitiu que assistiu o filme só por minha causa kkkkkkkk">
-            <div class="card-name">Filme</div>
+                <div class="card-name">Filme</div>
             </div>
             
+        </div> </main>
     
+    <div id="imageModal" class="modal">
+        <span class="close-btn">&times;</span>
+        <div class="modal-body">
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+        </div>
     </div>
-                <div id="imageModal" class="modal">
-                    <span class="close-btn">&times;</span>
-                    <img class="modal-content" id="img01">
-                </div>
+    
+    <script src="script_galeria.js"></script>
 
-                <div class="modal-body">
-                    <img class="modal-content" id="img01">
-                <div id="caption"></div>
-    </div>
-                <script src="script_galeria.js"></script>
-           </div>
-    </main>
     <nav class="baixo">
          <a href="../Pag002/index.html" id="botão-voltar">Retornar</a>
-         <a href="../pag004/index.html" id="botao-avancar">Avançar<img src="" alt="" srcset=""></a>
+         <a href="../pag004/index.html" id="botao-avancar">Avançar</a>
     </nav>
-       
-      
+</body>
 </html>

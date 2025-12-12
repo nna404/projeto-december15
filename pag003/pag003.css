@@ -18,7 +18,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: rgba(17, 10, 25, 0.85);
+    background-color: #08000a;
 
     height: 100dvh;
     min-height: 100vh;
@@ -52,6 +52,7 @@ body {
     width: 100px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
     transition: background-color 0.3s ease;
+    border: #9130b8 2px solid; 
 }
 
 .baixo {
@@ -73,6 +74,7 @@ body {
     width: 110px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
     transition: background-color 0.3s ease;
+    border: #9130b8 2px solid;
 }
 
 #botão-voltar {
@@ -86,6 +88,7 @@ body {
     width: 110px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
     transition: background-color 0.3s ease;
+    border: #9130b8 2px solid;
 }
 
 
@@ -120,9 +123,8 @@ article.textpag3-2 > p {
 }
 
 main {
-    background-color: var(--background);
     border-radius: 8px;
-    width: 90%;
+    width: 95%;
     max-width: 400px;
     height: auto;
     max-height: 60vh;
@@ -137,6 +139,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border: #b012c7 2px solid ;
     
 }
 
@@ -193,9 +196,11 @@ main {
     max-height: 80vh; /* Deixa um espacinho pro texto embaixo */
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    
+    transition: all 0.3s ease; /* Animação suave */
 }
 
-/* ESTILO DO SEU NOVO TEXTO (LEGENDA) */
+
 #caption {
     margin-top: 15px; /* Espaço entre a imagem e o texto */
     color: #f1f1f1;   /* Cor do texto claro */
@@ -282,3 +287,27 @@ main {
     to {transform:scale(1); opacity: 1;}
 }
 
+/* --- O BLOCO MÁGICO QUE TAVA FALTANDO --- */
+.modal {
+    display: none; /* Começa invisível */
+    position: fixed; /* Prende na tela */
+    z-index: 1000; /* Fica por cima de tudo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    
+    /* Cor de fundo preta transparente */
+    background-color: rgba(0, 0, 0, 0.85); 
+    
+    /* O Desfoque */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    
+    /* Centraliza o conteúdo */
+    align-items: center;
+    justify-content: center;
+    
+    transition: all 0.3s ease;
+}

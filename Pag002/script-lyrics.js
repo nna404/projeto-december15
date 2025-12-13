@@ -47,7 +47,7 @@ const lyricsData = [
     { time: 245, text: "..." }
 ];
 
-// Função que cria as letras no HTML automaticamente
+
 function createLyrics() {
     lyricsBox.innerHTML = ""; // Limpa antes
     lyricsData.forEach((line, index) => {

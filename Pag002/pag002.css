@@ -419,3 +419,11 @@ audio {
     font-size: 24px;
     cursor: pointer;
 }
+
+.poema {
+    font-style: italic;
+    color: #e0b0ff;
+    margin-top: 15px;
+    border-left: 4px solid #D918F5;
+    padding-left: 10px;
+}

@@ -1,7 +1,8 @@
-// Pega os elementos do DOM
+
 const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("img01");
-const captionText = document.getElementById("caption"); // <--- NOVO!
+const videoInsideModal = document.getElementById("video01"); // Elemento de vídeo
+const captionText = document.getElementById("caption"); 
 const closeBtn = document.getElementsByClassName("close-btn")[0];
 
 // Pega todas as miniaturas
@@ -14,19 +15,36 @@ thumbnails.forEach(thumb => {
         modal.style.alignItems = "center";
         modal.style.justifyContent = "center"; // Centraliza tudo
         
-        modalImg.src = this.src; // Pega a imagem
+        // --- LÓGICA NOVA: VÍDEO OU FOTO? ---
+        // Tenta pegar o link do vídeo
+        const videoSrc = this.getAttribute('data-video');
         
-        // --- AQUI ESTÁ A MÁGICA DO TEXTO ---
-        // Pega o texto que está no atributo 'data-caption' da miniatura clicada
+        if (videoSrc) {
+            // -- CENÁRIO 1: É VÍDEO --
+            modalImg.style.display = "none";         // Esconde a tag de imagem
+            videoInsideModal.style.display = "block"; // Mostra o player de vídeo
+            
+            videoInsideModal.src = videoSrc;         // Carrega o arquivo mp4
+            videoInsideModal.play();                 // Já sai tocando (opcional)
+            
+        } else {
+            // -- CENÁRIO 2: É FOTO --
+            videoInsideModal.style.display = "none"; // Esconde o vídeo
+            videoInsideModal.pause();                // Garante que tá mudo
+            modalImg.style.display = "block";        // Mostra a imagem
+            
+            modalImg.src = this.src;                 // Pega a imagem clicada
+        }
+        
+        // --- A MÁGICA DO TEXTO (Mantida) ---
         const textoDaLegenda = this.getAttribute('data-caption');
         
-        // Se tiver texto, mostra. Se não, deixa vazio.
         if (textoDaLegenda) {
             captionText.innerHTML = textoDaLegenda;
-            captionText.style.display = "block"; // Mostra a caixinha
+            captionText.style.display = "block"; 
         } else {
-            captionText.innerHTML = ""; // Limpa
-            captionText.style.display = "none"; // Esconde a caixinha
+            captionText.innerHTML = ""; 
+            captionText.style.display = "none"; 
         }
     });
 });
@@ -34,14 +52,23 @@ thumbnails.forEach(thumb => {
 // Função para fechar o modal
 function closeModal() {
     modal.style.display = "none";
-    captionText.innerHTML = ""; // Limpa o texto ao fechar pra não dar bug
+    captionText.innerHTML = ""; // Limpa texto
+    
+    // --- NOVO: PARAR O VÍDEO AO FECHAR ---
+    if (videoInsideModal) {
+        videoInsideModal.pause();
+        videoInsideModal.currentTime = 0;
+        videoInsideModal.src = ""; // Limpa a fonte pra não ficar carregando a toa
+    }
 }
 
 // Eventos para fechar
-closeBtn.onclick = function() { closeModal(); }
+if (closeBtn) closeBtn.onclick = function() { closeModal(); }
+
 modal.onclick = function(event) {
     if (event.target === modal) { closeModal(); }
 }
+
 document.addEventListener('keydown', function(event) {
     if (event.key === "Escape") { closeModal(); }
 });

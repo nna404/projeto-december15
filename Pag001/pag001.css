@@ -46,7 +46,7 @@ body {
     
     color: rgba(255, 255, 255, 0.932);
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
     text-align: center;
     width: 70px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
@@ -68,7 +68,7 @@ body {
     
     color: rgba(255, 255, 255, 0.932);
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
     text-align: center;
     width: 70px;
     box-shadow: 0 4px 6px rgba(94, 6, 165, 0.349);
@@ -153,7 +153,7 @@ main {
 .text-trigger-card {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
+    border-radius: 8px;
     padding: 4px;
     text-align: center;
     cursor: pointer;
@@ -197,7 +197,7 @@ main {
 .modal-text-box {
     background: #1a1a1a; /* Fundo sólido pra leitura ficar boa */
     border: 1px solid #D918F5; /* Borda roxa combinando com seu tema */
-    border-radius: 15px;
+    border-radius: 8px;
     width: 90%;
     max-width: 500px; /* Largura máxima de leitura */
     max-height: 80vh; /* Altura máxima (80% da tela) */
@@ -268,7 +268,7 @@ main {
 .password-box {
     background: #1a1a1a;
     border: 1px solid #D918F5;
-    border-radius: 15px;
+    border-radius: 8px;
     padding: 30px;
     width: 90%;
     max-width: 350px; /* Pequenininho e compacto */

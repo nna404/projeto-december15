@@ -3,9 +3,6 @@
 * {
     margin: 0px;
     padding: 0px;
-    font-family: 'Montserrat', sans-serif;
-    -webkit-font-smoothing: antialiased;
-
     box-sizing: border-box;
 }
 
@@ -18,7 +15,8 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
     background-color: #08000a;
 
     height: 100vh;
@@ -29,7 +27,8 @@ body {
     justify-content: center;
     align-items: center;
 
-    overflow: hidden;
+   overflow-x: hidden;
+   overflow-y: auto;
 }
 
 #cima {
@@ -97,7 +96,6 @@ a:hover {
 
 
 article.textpag2 > p {
-    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 1.1rem;
     line-height: 1.6;
@@ -111,7 +109,6 @@ article.textpag2 > p {
 
 
 article.textpag2-2 > p {
-    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 0.9rem;
     line-height: 1.6;
@@ -122,29 +119,55 @@ article.textpag2-2 > p {
     margin-top: 20px;
 }
 
-.spotify-glass {
-    
-    background: rgba(255, 255, 255, 0.05);
+/* --- PLAYER DE VÍDEO ESTILO GLASS --- */
+.video-glass-card {
+    background: rgba(255, 255, 255, 0.05); /* Efeito vidro */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     
+    border-radius: 15px;
+    padding: 15px; /* Espaço interno menor pra vídeo */
+    width: 95%;    /* Ocupa quase toda a largura no celular */
+    max-width: 500px; /* Mas não fica gigante no PC */
+    margin: 20px auto;
     
-    border-radius: 8px;
-    padding: 10px; 
-    max-width: 400px; 
-    margin: 20px auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
     
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-    
     transition: transform 0.3s ease;
-    
 }
 
+.video-glass-card:hover {
+    border-color: rgba(217, 24, 245, 0.4); /* Brilho roxo */
+    box-shadow: 0 10px 40px rgba(217, 24, 245, 0.2);
+}
 
-.spotify-glass:hover {
-    transform: scale(1.02);
-    border-color: rgba(255, 255, 255, 0.3);
+/* Títulos em cima do vídeo */
+.video-glass-card .track-info h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.video-glass-card .track-info p {
+    color: #bbb;
+    font-size: 0.85rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* O Vídeo em si */
+.custom-video {
+    width: 100%;       /* Preenche o card */
+    border-radius: 10px; /* Bordas arredondadas pra combinar */
+    outline: none;
+    max-height: 60vh;  /* Não deixa ficar mais alto que a tela do celular */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 main {
@@ -152,12 +175,13 @@ main {
     width: 95%;
     max-width: 400px;
     height: auto;
-    max-height: 60vh;
+    max-height: 65vh;
 
     overflow-y: auto;
    
     box-shadow: 1px 2px 2px rgba(17, 0, 37, 0.85);
     padding: 20px;
+    padding-top: 150px;
     margin: 20px 0;
 
     display: flex;
@@ -399,6 +423,10 @@ audio {
     font-weight: bold;
     cursor: pointer;
     transition: 0.2s;
+
+     font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+
 }
 
 #btnConfirmarSenha:hover { background: #b012c7; }
@@ -426,4 +454,10 @@ audio {
     margin-top: 15px;
     border-left: 4px solid #D918F5;
     padding-left: 10px;
+}
+
+strong {
+    color: #fdd3fd;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif !important;
 }

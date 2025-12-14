@@ -62,7 +62,7 @@ body {
 }
 
 
-#botao-avancar {
+#botao-avancar, #botao-voltar {
     padding: 10px 20px;
     margin: 0;
     
@@ -75,6 +75,7 @@ body {
     transition: background-color 0.3s ease;
     border: #9130b8 2px solid;
 }
+
 
 
 

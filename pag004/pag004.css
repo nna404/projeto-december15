@@ -21,7 +21,7 @@
 }
 
 .card-icon { font-size: 3rem; margin-bottom: 10px; }
-.card-title { font-weight: bold; color: #fff; font-size: 1.2rem; }
+.card-title { font-weight: bold; color: var(--texth1); font-size: 1.2rem; }
 .card-subtitle { color: #aaa; font-size: 0.9rem; margin-top: 5px; }
 
 
@@ -45,26 +45,30 @@
 
 /* A Caixinha do Texto em si */
 .modal-text-box {
-    background: #1a1a1a; /* Fundo sólido pra leitura ficar boa */
-    border: 1px solid #D918F5; /* Borda roxa combinando com seu tema */
+    background: #1a1a1a;  
+    border: 1px solid var(--borderbrown); /* Borda roxa combinando com seu tema */
     border-radius: 8px;
     width: 90%;
     max-width: 500px; /* Largura máxima de leitura */
     max-height: 80vh; /* Altura máxima (80% da tela) */
     padding: 25px;
     position: relative;
-    box-shadow: 0 0 20px rgba(217, 24, 245, 0.3);
+    box-shadow: 0 0 20px var(--growncolor);
     
     display: flex;
     flex-direction: column;
 }
 
+strong {
+    color: #FFD700;
+}
+
 /* Título dentro do modal */
 .modal-text-box h3 {
-    color: #D918F5;
+    color: var(--texth1);
     margin-bottom: 15px;
     text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(139,90,43,0.3);
     padding-bottom: 10px;
 }
 
@@ -110,16 +114,18 @@
 }
 
 :root {
-    --textshadow: #6F4675;
-    --textp: #B736CA;
-    --texth1: #D918F5;
-    --background : #322C33;
+    --borderbrown: #8B5A2B;
+    --textp: #Cca874;
+    --texth1: #D99E6A;
+    --growncolor : rgba(217, 158, 106, 0.4);
     --fonte0: Arial, Helvetica, sans-serif;
+    --border-brown: #8B5A2B;
+    --glow-color: rgba(217, 158, 106, 0.4);
 }
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #08000a;
+    background-color: #0f0b0a;
 
     height: 100dvh;
     min-height: 100vh;
@@ -146,14 +152,14 @@ body {
     margin: 0;
     padding: 10px 20px;
     
-    color: rgba(255, 255, 255, 0.932);
+    color: #f0e6d2;
     text-decoration: none;
     border-radius: 8px;
     text-align: center;
     width: 110px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     transition: background-color 0.3s ease;
-    border: #9130b8 2px solid;
+    border: var(--borderbrown) 2px solid;
 }
 
 .baixo {
@@ -168,14 +174,14 @@ body {
     padding: 10px 20px;
     margin: 0;
     
-    color: rgba(255, 255, 255, 0.932);
+    
     text-decoration: none;
     border-radius: 8px;
     text-align: center;
     width: 110px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
     transition: background-color 0.3s ease;
-    border: #9130b8 2px solid;
+    
 }
 
 
@@ -229,7 +235,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: #b012c7 2px solid ;
+    border: var(--border-brown) 2px solid ;
     
 }
 
@@ -376,4 +382,56 @@ video {
     border-radius: 8px; /* Arredonda o vídeo pra acompanhar o card */
     display: block;
     outline: none;
+}
+
+#botao-home, #botao-voltar, #botao-avancar {
+    border: var(--border-brown) 2px solid;
+    color: #f0e6d2; /* Texto bege claro */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+#botao-home:hover, #botao-voltar:hover {
+    background-color: var(--border-brown);
+    color: #fff;
+    box-shadow: 0 0 15px var(--glow-color);
+}
+
+/* --- CARD DE GATILHO (O botão de abrir a carta) --- */
+.text-trigger-card:hover {
+    background: rgba(139, 90, 43, 0.2);
+    box-shadow: 0 10px 15px var(--glow-color);
+}
+
+.card-subtitle {
+    color: #a67c52; /* Marrom claro */
+}
+
+/* --- MODAL DA SENHA --- */
+.password-box {
+    border: 1px solid var(--border-brown);
+    box-shadow: 0 0 15px var(--glow-color);
+}
+
+#inputSenha:focus {
+    border-color: var(--texth1);
+    box-shadow: 0 0 8px var(--glow-color);
+}
+
+#btnConfirmarSenha {
+    background: var(--border-brown);
+}
+
+#btnConfirmarSenha:hover {
+    background: #A0522D; /* Um marrom mais avermelhado no hover */
+}
+
+/* --- VÍDEO CARD --- */
+.cinema-card {
+    border: 1px solid var(--border-brown);
+    box-shadow: 0 0 20px var(--glow-color), 
+}
+
+.video-header h2 {
+    color: var(--texth1);
+    text-shadow: 0 0 10px var(--glow-color);
 }

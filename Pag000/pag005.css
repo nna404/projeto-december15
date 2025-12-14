@@ -25,7 +25,7 @@ body {
     margin-bottom: 20px;
     margin-top: 10px;
 }
-.header-text h2 { color: #D918F5; text-shadow: 0 0 10px rgba(217, 24, 245, 0.4); }
+.header-text h2 { color: #D918F5; text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
 .header-text p { color: #aaa; font-size: 0.9rem; }
 
 /* Grid 3x3 */

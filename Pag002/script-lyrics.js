@@ -65,17 +65,44 @@ createLyrics();
 audio.addEventListener('timeupdate', () => {
     const currentTime = audio.currentTime;
 
-    lyricsData.forEach((line, index) => {
-        
-        if (currentTime >= line.time) {
-            
-            document.querySelectorAll('.line').forEach(l => l.classList.remove('active'));
-            
-           
-            const currentLine = lyricsBox.children[index];
-            currentLine.classList.add('active');
-
-            
+    // 1. Acha qual é a linha ATUAL
+    let activeIndex = -1;
+    for (let i = 0; i < lyricsData.length; i++) {
+        if (currentTime >= lyricsData[i].time) {
+            activeIndex = i;
+        } else {
+            break; 
         }
-    });
+    }
+
+    // 2. Se achou, atualiza o visual
+    if (activeIndex !== -1) {
+        document.querySelectorAll('.line').forEach(l => l.classList.remove('active'));
+        
+        const currentLine = lyricsBox.children[activeIndex];
+        
+        if (currentLine) {
+            currentLine.classList.add('active');
+            
+            // --- AQUI TÁ A CORREÇÃO DO CÁLCULO ---
+            
+            // 1. Altura da caixa (ex: 300px)
+            const containerHeight = lyricsBox.clientHeight;
+            // 2. Altura da linha (ex: 20px)
+            const lineHeight = currentLine.clientHeight;
+            
+            // 3. Posição RELATIVA (O Pulo do Gato 😺)
+            // A gente pega a posição da linha e SUBTRAI a posição da caixa.
+            // Assim a gente descobre onde a linha tá DENTRO da caixa.
+            const lineLocation = currentLine.offsetTop - lyricsBox.offsetTop;
+
+            // 4. Centraliza
+            const scrollPosition = lineLocation - (containerHeight / 2) + (lineHeight / 2);
+
+            lyricsBox.scrollTo({
+                top: scrollPosition,
+                behavior: 'smooth'
+            });
+        }
+    }
 });

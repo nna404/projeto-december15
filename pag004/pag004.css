@@ -156,7 +156,7 @@ body {
     text-decoration: none;
     border-radius: 8px;
     text-align: center;
-    width: 110px;
+    width: 95px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     transition: background-color 0.3s ease;
     border: var(--borderbrown) 2px solid;
@@ -387,7 +387,6 @@ video {
 #botao-home, #botao-voltar, #botao-avancar {
     border: var(--border-brown) 2px solid;
     color: #f0e6d2; /* Texto bege claro */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 #botao-home:hover, #botao-voltar:hover {

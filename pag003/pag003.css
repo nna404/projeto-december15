@@ -49,10 +49,9 @@ body {
     text-decoration: none;
     border-radius: 8px;
     text-align: center;
-    width: 100px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
+    width: 95px;
     transition: background-color 0.3s ease;
-    border: #9130b8 2px solid; 
+    border: #4E1884 2px solid; 
 }
 
 .baixo {
@@ -72,9 +71,8 @@ body {
     border-radius: 8px;
     text-align: center;
     width: 110px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
     transition: background-color 0.3s ease;
-    border: #9130b8 2px solid;
+    border: #4E1884 2px solid;
 }
 
 #botão-voltar {
@@ -86,14 +84,13 @@ body {
     border-radius: 8px;
     text-align: center;
     width: 110px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
     transition: background-color 0.3s ease;
-    border: #9130b8 2px solid;
+    border: #4E1884 2px solid;
 }
 
 
 a:hover {
-    background-color: #D918F5;
+    background-color: rgba(128, 128, 128, 0.3);
 }
 
 article.textpag3 > p {
@@ -139,7 +136,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: #b012c7 2px solid ;
+    border: #5c1d9b 1px solid ;
     
 }
 

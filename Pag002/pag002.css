@@ -305,18 +305,18 @@ main {
     font-size: 1rem;
     color: #888; /* Cor da letra "apagada" */
     margin: 15px 0;
-    transition: all 0.3s ease; /* Animação da troca */
+    transition: all 0.2s ease; /* Animação da troca */
     opacity: 0.6;
 }
 
 
 .line.active {
     color: #D918F5; /* Sua cor roxa neon */
-    font-size: 1.1rem; /* Fica maior */
-    font-weight: bold;
+    font-size: 1rem; /* Fica maior */
     opacity: 1;
     transform: scale(1.05);
     
+    transform-origin: center;
 }
 
 #music-tittle-text {

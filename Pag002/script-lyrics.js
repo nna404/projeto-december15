@@ -1,8 +1,7 @@
 const audio = document.getElementById('meuAudio');
 const lyricsBox = document.getElementById('lyricsBox');
 
-// AQUI É ONDE VOCÊ TRABALHA: Sincronia
-// Coloque o tempo (em segundos) que cada frase começa
+
 const lyricsData = [
     { time: 0, text: "..." },
     { time: 25, text: "Eu provei do amor e sei o gosto" }, 
@@ -47,9 +46,8 @@ const lyricsData = [
     { time: 245, text: "..." }
 ];
 
-
 function createLyrics() {
-    lyricsBox.innerHTML = ""; // Limpa antes
+    lyricsBox.innerHTML = ""; 
     lyricsData.forEach((line, index) => {
         const p = document.createElement('p');
         p.classList.add('line');
@@ -58,51 +56,51 @@ function createLyrics() {
         lyricsBox.appendChild(p);
     });
 }
-
 createLyrics(); 
 
+// --- VARIÁVEL DE CONTROLE  ---
+let currentLineIndex = -1; 
 
 audio.addEventListener('timeupdate', () => {
     const currentTime = audio.currentTime;
 
-    // 1. Acha qual é a linha ATUAL
-    let activeIndex = -1;
+    // 1. Descobre qual deveria ser a linha ativa agora
+    let newActiveIndex = -1;
     for (let i = 0; i < lyricsData.length; i++) {
         if (currentTime >= lyricsData[i].time) {
-            activeIndex = i;
+            newActiveIndex = i;
         } else {
             break; 
         }
     }
 
-    // 2. Se achou, atualiza o visual
-    if (activeIndex !== -1) {
+    // 2. SÓ MEXE SE MUDOU DE LINHA 
+    if (newActiveIndex !== currentLineIndex) {
+        
+        // Atualiza a memória
+        currentLineIndex = newActiveIndex;
+
+        // Limpa todas
         document.querySelectorAll('.line').forEach(l => l.classList.remove('active'));
         
-        const currentLine = lyricsBox.children[activeIndex];
-        
-        if (currentLine) {
-            currentLine.classList.add('active');
-            
-            // --- AQUI TÁ A CORREÇÃO DO CÁLCULO ---
-            
-            // 1. Altura da caixa (ex: 300px)
-            const containerHeight = lyricsBox.clientHeight;
-            // 2. Altura da linha (ex: 20px)
-            const lineHeight = currentLine.clientHeight;
-            
-            // 3. Posição RELATIVA (O Pulo do Gato 😺)
-            // A gente pega a posição da linha e SUBTRAI a posição da caixa.
-            // Assim a gente descobre onde a linha tá DENTRO da caixa.
-            const lineLocation = currentLine.offsetTop - lyricsBox.offsetTop;
+        if (currentLineIndex !== -1) {
+            const currentLine = lyricsBox.children[currentLineIndex];
+            if (currentLine) {
+                // Aplica o estilo (SÓ UMA VEZ)
+                currentLine.classList.add('active');
+                
+                // Faz o scroll suave matemático
+                const containerHeight = lyricsBox.clientHeight;
+                const lineHeight = currentLine.clientHeight;
+                const lineOffset = currentLine.offsetTop - lyricsBox.offsetTop; // Correção da posição
 
-            // 4. Centraliza
-            const scrollPosition = lineLocation - (containerHeight / 2) + (lineHeight / 2);
+                const scrollPosition = lineOffset - (containerHeight / 2) + (lineHeight / 2);
 
-            lyricsBox.scrollTo({
-                top: scrollPosition,
-                behavior: 'smooth'
-            });
+                lyricsBox.scrollTo({
+                    top: scrollPosition,
+                    behavior: 'smooth'
+                });
+            }
         }
     }
 });

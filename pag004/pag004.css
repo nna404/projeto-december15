@@ -184,12 +184,24 @@ body {
     
 }
 
-
-
-
-a:hover {
-    background-color: #D918F5;
+#botao-flower {
+    padding: 10px 20px;
+    margin: 10px 0;
+    
+    color: #f0e6d2;
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+    width: 110px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
+    transition: background-color 0.3s ease;
+    border: var(--borderbrown) 2px solid;
 }
+
+
+
+
+
 
 h2 {
     font-family: 'Montserrat', sans-serif;

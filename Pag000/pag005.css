@@ -112,25 +112,49 @@ body {
 
 }
 
+/* Configuração Base */
 .modal-content-area {
-    overflow-y: auto; /* Rolagem interna pro textão */
+    overflow-y: auto;
     color: #e0e0e0;
-    line-height: 1.5em;
     font-size: 1rem;
-    text-align: justify;
-    padding-right: 4px;
-
-    text-align: left;
-    text-indent: 1.5em;
+    padding-right: 5px;
+    height: 100%;
 }
 
-/* Estilo dos títulos dentro do modal */
+/* --- ESTILO 1: MODO CARTA (Para os textos 1 e 5) --- */
+/* Texto justificado, com parágrafo e leitura séria */
+.modal-content-area.modo-carta {
+    text-align: justify;
+    line-height: 1.6;
+    text-indent: 1.5em; /* Recuo no começo do parágrafo */
+    white-space: normal; /* O navegador quebra a linha onde der */
+}
+.modal-content-area.modo-carta p {
+    margin-bottom: 15px;
+}
+
+/* --- ESTILO 2: MODO POEMA --- */
+
+.modal-content-area.modo-poema {
+    text-align: center;
+    font-style: italic;
+    line-height: 1.6; /* Um pouco mais espaçado */
+    white-space: pre-line; 
+}
+.modal-content-area.modo-poema p {
+    margin-bottom: 10px; /* Espaço entre estrofes */
+    margin-top: 0;
+}
+
+/* Títulos dentro do modal (serve pros dois) */
 .modal-content-area h3 {
     color: rgba(214, 180, 232, 0.85);
     text-align: center;
     margin-bottom: 15px;
     border-bottom: 1px solid rgba(255,255,255,0.1);
     padding-bottom: 10px;
+    font-style: normal; /* Título não fica itálico */
+    text-indent: 0;
 }
 
 .close-btn {
@@ -166,7 +190,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin: 0;
+    margin: 20px 0;
 }
 
 
@@ -186,3 +210,5 @@ body {
 a:hover {
     background-color: rgba(128, 128, 128, 0.3);
 }
+
+

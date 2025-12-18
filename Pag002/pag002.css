@@ -167,7 +167,7 @@ article.textpag2-2 > p {
 }
 
 main {
-    border-radius: 8px;
+    border-radius: 20px;
     width: 95%;
     max-width: 400px;
     height: auto;
@@ -176,7 +176,7 @@ main {
     overflow-y: auto;
    
     box-shadow: 1px 2px 2px rgba(17, 0, 37, 0.85);
-    padding: 20px;
+    padding: 30px;
     padding-top: 130px;
     margin: 20px 0;
 
@@ -184,18 +184,17 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: #5c1d9b 1px solid ;
+    border: #5c1d9ba2 1px solid ;
 }
 
 .text-trigger-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    border: 1px solid #5c1d9ba2;
+    border-radius: 20px;
     padding: 4px;
     text-align: center;
     cursor: pointer;
     transition: transform 0.2s, background 0.3s;
-    width: 110px;
+    width: 95px;
     max-width: 200px;
     margin: 20px auto;
     height: 30px;
@@ -203,13 +202,13 @@ main {
 
 .text-trigger-card:hover {
     transform: translateY(-5px);
-    background: rgba(197, 192, 197, 0.37);
+    background: #5c1d9ba2;
     box-shadow: 0 10px 20px rgba(26, 1, 29, 0.2); /* Aquele brilho roxo maroto */
 }
 
 .card-icon { font-size: 3rem; }
-.card-title { font-weight: bold; color: #9130b8; font-size: 1.2rem; }
-.card-subtitle { color: #9130b8; font-size: 0.9rem; }
+.card-title { font-weight: bold; color: #fff; font-size: 1.2rem; }
+.card-subtitle { color: #fff; font-size: 0.9rem; }
 
 
 /* --- O MODAL DE TEXTO (A Mágica) --- */
@@ -232,14 +231,14 @@ main {
 
 /* A Caixinha do Texto em si */
 .modal-text-box {
-    background: #1a1a1a; /* Fundo sólido pra leitura ficar boa */
+    
     border: 1px solid #D918F5; /* Borda roxa combinando com seu tema */
     border-radius: 8px;
     width: 90%;
     max-width: 400px; /* Largura máxima de leitura */
     max-height: 80vh; /* Altura máxima (80% da tela) */
     padding: 25px;
-    box-shadow: 0 0 20px rgba(217, 24, 245, 0.3);
+    box-shadow: 0 0 3px rgba(217, 24, 245, 0.3);
     
     position: relative;
     display: flex;
@@ -367,9 +366,9 @@ audio {
 }
 
 .password-box {
-    background: #1a1a1a;
+
     border: 1px solid #9130b8;
-    border-radius: 8px;
+    border-radius: 15px;
     padding: 30px;
     width: 90%;
     max-width: 350px; /* Pequenininho e compacto */
@@ -405,9 +404,9 @@ audio {
 /* Botão Confirmar */
 #btnConfirmarSenha {
     padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background: #9130b8;
+    border: #9230b8be 1px solid;
+    border-radius: 20px;
+    background: #000000;
     color: #fff;
     font-weight: bold;
     cursor: pointer;
@@ -418,7 +417,7 @@ audio {
 
 }
 
-#btnConfirmarSenha:hover { background: #b012c7; }
+#btnConfirmarSenha:hover { border: 1px solid #b012c7; }
 
 /* Mensagem de Erro (escondida por padrão) */
 .error-msg {

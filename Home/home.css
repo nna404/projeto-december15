@@ -31,11 +31,16 @@
             
             color: #fff;
             font-family: 'Montserrat', sans-serif;
+
             position: absolute; 
             top: 40px;
             left: 50%;
             transform: translateX(-50%);
+
             z-index: 100; /* Fica na frente de tudo */
+            animation: pulsoCentralizadoh1 7s infinite ease-in-out;
+          
+
            
         }
 
@@ -49,6 +54,7 @@
             transform: translateX(-50%);
             z-index: 100; /* Fica na frente de tudo */
             font-size: 0.9rem;
+            animation: pulsoCentralizadoh3 7s infinite ease-in-out;
         }
 
         /* --- CONFIGURAÇÃO DO AMBIENTE --- */
@@ -219,3 +225,34 @@
             z-index: 0;
             animation: pulse 3s infinite alternate;
         }
+
+        /* --- Animação de Texto Pulsando --- */
+@keyframes pulsoCentralizadoh1 {
+    0% {
+        transform: translateX(-50%) scale(1);
+        text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.05); /* Mantém o centro e aumenta */
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.8); /* Brilho branco */
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+        text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+    }
+}
+
+@keyframes pulsoCentralizadoh3 {
+    0% {
+        transform: translateX(-50%) scale(1);
+        text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.05); /* Mantém o centro e aumenta */
+        text-shadow: 0 0 0px rgba(255, 255, 255, 0.8); /* Brilho branco */
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+        text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+    }
+}

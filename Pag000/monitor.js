@@ -1,31 +1,33 @@
 document.addEventListener("DOMContentLoaded", function() {
     
     // --- CONFIGURAÇÃO ---
-    const webhookURL = "https://discord.com/api/webhooks/1451156566173810719/Ul0aqvmKVnCQj0MGLodI0UrKn6WRVRt2g2VmYRA5T9_muaANSPfFj2dVwxrsL71qALet"; // <--- Cola o link aqui
+    const webhookURL = "https://discord.com/api/webhooks/1451156566173810719/Ul0aqvmKVnCQj0MGLodI0UrKn6WRVRt2g2VmYRA5T9_muaANSPfFj2dVwxrsL71qALet"; // <--- Seu Link
     
-    // Verifica se é localhost (pra não contar você)
     const isLocalhost = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
 
-    // Verifica se já registrou (pra não floodar)
-    if (!isLocalhost && !sessionStorage.getItem("acessoRegistrado")) {
-        
-        const paginaAtual = document.title || window.location.pathname;
+    // Pega o nome da página atual (ex: "Memorial", "A Música", etc)
+    const paginaAtual = document.title;
+    
+    // Pega qual foi a última página que a gente avisou no Discord
+    const ultimaPaginaAvisada = sessionStorage.getItem("ultimaPaginaAvisada");
 
-        // Monta os dados
+    // LÓGICA DO FOFQUEIRO:
+    // 1. Não é localhost?
+    // 2. A página atual é DIFERENTE da última que avisei? (Isso evita F5 repetido, mas avisa se mudar de página)
+    if (!isLocalhost && paginaAtual !== ultimaPaginaAvisada) {
+        
         const data = {
-            content: `🚨 **ELA ENTROU:** Acesso detectado na página: **${paginaAtual}**`,
+            content: `👣 **ELA ANDOU:** Saiu da *${ultimaPaginaAvisada || "Entrada"}* e foi para **${paginaAtual}**!`,
             username: "Espião do Amor",
             avatar_url: "https://cdn-icons-png.flaticon.com/512/2583/2583166.png"
         };
 
-        // --- O PULO DO GATO: sendBeacon 🚀 ---
-        // Cria um pacote de dados (Blob) pra mandar como JSON
         const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
-        
-        // Manda o sinal em segundo plano (muito mais rápido que fetch)
         navigator.sendBeacon(webhookURL, blob);
 
-        console.log("Sinal enviado via Satélite (Beacon).");
-        sessionStorage.setItem("acessoRegistrado", "true");
+        console.log(`Aviso enviado: ${paginaAtual}`);
+        
+        // Atualiza a memória com a página nova
+        sessionStorage.setItem("ultimaPaginaAvisada", paginaAtual);
     }
 });

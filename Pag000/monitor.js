@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     
     // --- CONFIGURAÇÃO ---
-    const webhookURL = "SUA_URL_DO_DISCORD_AQUI"; // <--- Cola o link aqui
+    const webhookURL = "https://discord.com/api/webhooks/1451156566173810719/Ul0aqvmKVnCQj0MGLodI0UrKn6WRVRt2g2VmYRA5T9_muaANSPfFj2dVwxrsL71qALet"; // <--- Cola o link aqui
     
     // Verifica se é localhost (pra não contar você)
     const isLocalhost = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";

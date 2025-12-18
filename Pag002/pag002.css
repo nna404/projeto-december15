@@ -17,7 +17,7 @@
 body {
     font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
-    background-color: #08000a;
+    background: radial-gradient(circle at center, #2c1a3a 0%, #000000 100%);
 
     height: 100vh;
     width: 100vw;
@@ -33,7 +33,8 @@ body {
 
 #cima {
     display: flex;
-    justify-content: center;    
+    justify-content: center;
+    margin: 0;
 }
 
 #botao-home {
@@ -43,53 +44,51 @@ body {
     
     color: rgba(255, 255, 255, 0.932);
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 20px;
     text-align: center;
     width: 95px;
-    transition: background-color 0.3s ease;
-    border: #4E1884 2px solid;
+    transition: all 0.3s ease;
+    border: #4e188480 1px solid;
+}
+
+#botao-home:hover {
+    border: 1px solid #4E1884;
+    box-shadow: 0 0 3px #4E1884;
 }
 
 .baixo {
     display: flex;
     justify-content: center;
     gap: 20px;
-
-    margin: 0;
+    margin: 20px 0;
 }
 
-#botão-voltar {
+
+#botao-avancar, #botão-voltar {
     padding: 10px 20px;
-    margin: 0;
+    margin: 20px 0;
     
     color: rgba(255, 255, 255, 0.932);
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 20px;
     text-align: center;
     width: 110px;
-    transition: background-color 0.3s ease;
-    border: #4E1884 2px solid;
+    transition: all 0.3s ease;
+    border: #4e188480 1px solid;
 }
 
-#botao-avancar {
-    padding: 10px 20px;
-    margin: 0;
-    
-    color: rgba(255, 255, 255, 0.932);
-    text-decoration: none;
-    border-radius: 8px;
-    text-align: center;
-    width: 110px;
-    transition: background-color 0.3s ease;
-    border: #4E1884 2px solid;  
+#botao-avancar:hover {
+    border: 1px solid #4E1884;
+    box-shadow: 0 0 3px #4E1884;
+   
 }
 
-
-
-
-a:hover {
-    background-color: rgba(128, 128, 128, 0.3);
+#botão-voltar:hover {
+    border: 1px solid #4E1884;
+    box-shadow: 0 0 3px #4E1884;
+   
 }
+
 
 
 article.textpag2 > p {

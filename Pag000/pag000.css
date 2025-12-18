@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: #08000a;
+    background: radial-gradient(circle at center, #2c1a3a 0%, #000000 100%);
     width: 100%;
     min-height: 100vh;
     display: flex;
@@ -34,7 +34,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     width: 90%;
-    max-width: 400px;
+    max-width: 300px;
     margin: 0 auto;
 }
 
@@ -43,7 +43,7 @@ body {
     aspect-ratio: 1 / 1; /* Quadrado perfeito */
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -98,7 +98,7 @@ body {
 .modal-box {
     background: #1a1a1a;
     border: 1px solid #D918F5;
-    border-radius: 15px;
+    border-radius: 20px;
     width: 90%;
     max-width: 400px;
     height: auto;
@@ -179,11 +179,22 @@ body {
     
     color: rgba(255, 255, 255, 0.932);
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 20px;
     text-align: center;
     width: 95px;
-    transition: background-color 0.3s ease;
-    border: #4E1884 2px solid;
+    transition: all 0.3s ease;
+    border: #4e188480 1px solid;
+}
+
+#botao-home:hover {
+    border: 1px solid #4E1884;
+    box-shadow: 0 0 3px #4E1884;
+}
+
+#botao-avancar:hover {
+    border: 1px solid #4E1884;
+    box-shadow: 0 0 3px #4E1884
+   
 }
 
 .baixo {
@@ -200,15 +211,13 @@ body {
     
     color: rgba(255, 255, 255, 0.932);
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 20px;
     text-align: center;
     width: 110px;
-    transition: background-color 0.3s ease;
-    border: #4E1884 2px solid;
+    transition: all 0.3s ease;
+    border: #4e188480 1px solid;
 }
 
-a:hover {
-    background-color: rgba(128, 128, 128, 0.3);
-}
+
 
 

@@ -125,8 +125,8 @@ strong {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #0f0b0a;
 
+    background: radial-gradient(circle at center, #2c1814 0%, #000000 100%);
     height: 100dvh;
     min-height: 100vh;
     width: 100vw;
@@ -149,24 +149,23 @@ body {
 
 #botao-home {
     display: block;
+
     margin: 0;
     padding: 10px 20px;
     
-    color: #f0e6d2;
+    color: rgba(255, 255, 255, 0.932);
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 20px;
     text-align: center;
     width: 95px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    transition: background-color 0.3s ease;
-    border: var(--borderbrown) 2px solid;
+    transition: all 0.3s ease;
 }
 
 .baixo {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin: 0;
+    margin: 20px 0;
 }
 
 
@@ -176,32 +175,14 @@ body {
     
     
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 20px;
     text-align: center;
     width: 110px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    border: #2c181480 1px solid;
     
 }
-
-#botao-flower {
-    padding: 10px 20px;
-    margin: 10px 0;
-    
-    color: #f0e6d2;
-    text-decoration: none;
-    border-radius: 8px;
-    text-align: center;
-    width: 110px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.349);
-    transition: background-color 0.3s ease;
-    border: var(--borderbrown) 2px solid;
-}
-
-
-
-
-
 
 h2 {
     font-family: 'Montserrat', sans-serif;
@@ -247,7 +228,6 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: var(--border-brown) 2px solid ;
     
 }
 
@@ -396,16 +376,7 @@ video {
     outline: none;
 }
 
-#botao-home, #botao-voltar, #botao-avancar {
-    border: var(--border-brown) 2px solid;
-    color: #f0e6d2; /* Texto bege claro */
-}
 
-#botao-home:hover, #botao-voltar:hover {
-    background-color: var(--border-brown);
-    color: #fff;
-    box-shadow: 0 0 15px var(--glow-color);
-}
 
 /* --- CARD DE GATILHO (O botão de abrir a carta) --- */
 .text-trigger-card:hover {

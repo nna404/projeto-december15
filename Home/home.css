@@ -15,27 +15,25 @@ body {
     overflow: hidden;
 }
 
-/* --- CONTAINER DE INTERFACE (TEXTOS E BOTÃO) --- */
-/* Dica: No seu HTML, envolva o h1, h3 e o .btn-sim numa div com a classe .ui-container se possível, 
-   mas o código abaixo funciona mesmo se estiverem soltos, só garante a ordem no HTML */
+
 
 h1.flower-title {
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     margin-top: 40px; /* Margem do topo relativa, não absoluta */
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     z-index: 100;
     animation: pulsoCentralizadoh1 7s infinite ease-in-out;
     /* Removemos position absolute, top, left e transform */
 }
 
 h3.flower-title {
-    color: #ffffffcc;
+    color: #ffffffa4;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     font-size: 0.9rem;
-    margin: 0 0 20px 0; /* Margem pra separar do botão */
+    margin: 0 0 10px 0; /* Margem pra separar do botão */
     z-index: 100;
     animation: pulsoCentralizadoh3 7s infinite ease-in-out;
     /* Removemos position absolute */
@@ -226,11 +224,11 @@ h3.flower-title {
 
 @keyframes pulsoCentralizadoh3 {
     0%, 100% { transform: scale(1); text-shadow: 0 0 0px rgba(255, 255, 255, 0); }
-    50% { transform: scale(1.05); text-shadow: 0 0 0px rgba(255, 255, 255, 0.8); }
+    50% { transform: scale(1.05); text-shadow: 0 0 0px rgba(255, 255, 255, 0.685); }
 }
 
 /* --- MEDIA QUERY PARA CELULARES PEQUENOS --- */
-/* Isso aqui é o pulo do gato pro bug do celular */
+
 @media (max-height: 700px) {
     .flower-wrapper {
         transform: scale(0.7); /* Diminui a flor para caber */

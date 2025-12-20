@@ -117,9 +117,7 @@ article.textpag2-2 > p {
 
 
 .video-glass-card {
-    background: rgba(255, 255, 255, 0.05); /* Efeito vidro */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     
     border-radius: 15px;
@@ -137,9 +135,10 @@ article.textpag2-2 > p {
     transition: transform 0.3s ease;
 }
 
-.video-glass-card:hover {
-    border: 1px solid rgba(85, 9, 97, 0.6);
-    box-shadow: 0 7px 15px rgba(48, 5, 54, 0.2);
+.video-glass-card:hover { 
+    border-color: #D918F5;
+    transform: scale(1.02);
+    box-shadow: 0 0 5px rgba(217, 24, 245, 0.4);
 }
 
 /* Títulos em cima do vídeo */

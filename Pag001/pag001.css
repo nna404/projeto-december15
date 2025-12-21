@@ -137,7 +137,7 @@ article.textpag1-2 > p {
 
 main {
     border-radius: 20px;
-    width: 95%;
+    width: 82%;
     max-width: 330px;
     height: auto;
     max-height: 60vh;
@@ -201,11 +201,11 @@ main {
 
 /* A Caixinha do Texto em si */
 .modal-text-box {
-    background: #1a1a1a; /* Fundo sólido pra leitura ficar boa */
-    border: 1px solid #D918F5; /* Borda roxa combinando com seu tema */
+    /* Fundo sólido pra leitura ficar boa */
+    border: 1px solid #5c1d9ba2; /* Borda roxa combinando com seu tema */
     border-radius: 8px;
     width: 90%;
-    max-width: 500px; /* Largura máxima de leitura */
+    max-width: 350px; /* Largura máxima de leitura */
     max-height: 80vh; /* Altura máxima (80% da tela) */
     padding: 25px;
     position: relative;

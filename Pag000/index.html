@@ -5,86 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memorial</title>
     <link rel="stylesheet" href="pag000.css">
+    <link rel="stylesheet" href="natal.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <ul class="neon-lights">
+    <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+</ul>
 
     <nav class="cima">
         <a href="../index.html" id="botao-home">Home</a>
     </nav>
 
-    <main>
+    <main class="menu-anos">
         <div class="header-text">
-            <h2>Todos os textos.</h2>
-            <p>Estão fora de ordem, mas tentei organizar as datas..</p>
-            <br>
-            <p>Serão atualizados com o tempo.</p>
+            <h2>Museu dos textos</h2>
+            <p>Selecione o ano para ver todos que foram escritos.</p>
         </div>
 
-        <div class="grid-container">
-            
-            <div class="box-card" data-key="1">
-                <span>17/04 </span>
-                <div class="card-hint">O Começo</div>
-            </div>
-
-            <div class="box-card" data-key="2">
-                <span>03/06</span>
-                <div class="card-hint">Again</div>
-            </div>
-
-            <div class="box-card" data-key="3">
-                <span>16/05</span>
-                <div class="card-hint">Sem fim</div>
-            </div>
-
-            <div class="box-card" data-key="4">
-                <span>03/06</span>
-                <div class="card-hint">Love u</div>
-            </div>
-
-            <div class="box-card special" data-key="5">
-                <span>💜</span>
-                <div class="card-hint">Pedaço</div>
-            </div>
-
-            <div class="box-card" data-key="6">
-                <span>05/08</span>
-                <div class="card-hint">Esquina</div>
-            </div>
-
-            <div class="box-card" data-key="7">
-                <span>01/08</span>
-                <div class="card-hint">J</div>
-            </div>
-
-            <div class="box-card" data-key="8">
-                <span>21/10</span>
-                <div class="card-hint">?</div>
-            </div>
-
-            <div class="box-card" data-key="9">
-                <span>19/05</span>
-                <div class="card-hint">TWM</div>
-            </div>
-
-             <div class="box-card" data-key="10">
-                <span>18/12</span>
-                <div class="card-hint">Brilho</div>
-            </div>
-
-            
-             <div class="box-card" data-key="11">
-                <span>22/12</span>
-                <div class="card-hint">🤍</div>
-            </div>
-
-             <div class="box-card" data-key="12">
-                <span>31/12</span>
-                <div class="card-hint">Fim.</div>
-            </div>
+        <div class="botoes-anos-container">
+            <button class="btn-ano" id="open-2025">2025</button>
+            <button class="btn-ano future" id="open-2026">2026 🔒</button>
         </div>
     </main>
+
+    <div id="modal-ano-2025" class="modal-ano-overlay">
+        <div class="modal-ano-content">
+            <span class="close-ano-btn" data-target="modal-ano-2025">&times;</span>
+            
+            <h3>2025</h3>
+            <p class="subtitulo-ano">O início de tudo.</p>
+
+            <div class="grid-container">
+                <div class="box-card" data-key="1"><span>17/04</span><div class="card-hint">O Começo</div></div>
+                <div class="box-card" data-key="2"><span>03/06</span><div class="card-hint">Again</div></div>
+                <div class="box-card" data-key="3"><span>16/05</span><div class="card-hint">Sem fim</div></div>
+                <div class="box-card" data-key="4"><span>03/06</span><div class="card-hint">Love u</div></div>
+                <div class="box-card special" data-key="5"><span>💜</span><div class="card-hint">Pedaço</div></div>
+                <div class="box-card" data-key="6"><span>05/08</span><div class="card-hint">Esquina</div></div>
+                <div class="box-card" data-key="7"><span>01/08</span><div class="card-hint">J</div></div>
+                <div class="box-card" data-key="8"><span>21/10</span><div class="card-hint">?</div></div>
+                <div class="box-card" data-key="9"><span>19/05</span><div class="card-hint">TWM</div></div>
+                <div class="box-card" data-key="10"><span>18/12</span><div class="card-hint">Brilho</div></div>
+                <div class="box-card" data-key="11"><span>22/12</span><div class="card-hint">🤍</div></div>
+                <div class="box-card" data-key="12"><span>31/12</span><div class="card-hint">Fim.</div></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-ano-2026" class="modal-ano-overlay">
+        <div class="modal-ano-content">
+            <span class="close-ano-btn" data-target="modal-ano-2026">&times;</span>
+            
+            <h3>2026</h3>
+            <p class="subtitulo-ano">Novas coisas a serem escritas</p>
+
+            <div class="grid-container">
+                <div class="box-card special">
+                    <span>??</span>
+                    <div class="card-hint">Em breve</div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
 
     <div id="textModal" class="modal-overlay">
         <div class="modal-box">
@@ -973,6 +961,7 @@ Nesse dia fomos apaixonados.</p>
     </nav>
 
     <script src="script_final.js"></script>
+    <script src="neve.js"></script>
     
 </body>
 </html>

@@ -1,34 +1,99 @@
 @charset "UTF-8";
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+body { background: radial-gradient(circle at center, #2c1a3a 0%, #000000 100%); width: 100%; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow-x: hidden; padding-bottom: 20px; }
+
+/* Títulos da Home */
+.header-text { text-align: center; margin-bottom: 30px; margin-top: 10px; }
+.header-text h2 { color: rgba(214, 180, 232, 0.85); text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); font-size: 2rem; }
+.header-text p { color: #aaa; font-size: 0.9rem; }
+
+/* --- BOTÕES DOS ANOS (NOVA HOME) --- */
+.botoes-anos-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-body {
-    background: radial-gradient(circle at center, #2c1a3a 0%, #000000 100%);
+.btn-ano {
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(217, 24, 245, 0.3);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    width: 200px;
+    margin: auto;
+}
+
+.btn-ano:hover {
+    background: rgba(217, 24, 245, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(217, 24, 245, 0.4);
+}
+
+.btn-ano.future {
+    opacity: 0.6;
+    border-color: #555;
+}
+
+/* --- MODAL DE ANO (Onde ficam os cards) --- */
+.modal-ano-overlay {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 1000; /* Nível 1 */
+    left: 0;
+    top: 0;
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
+    background: radial-gradient(circle at center, #1a0f22 0%, #000000 100%); /* Fundo sólido pra tampar a home */
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto; /* Permite rolar se tiver muitos cards */
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.modal-ano-content {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    overflow-x: hidden;
-    padding-bottom: 20px;
+    position: relative;
+    animation: fadeIn 0.4s ease;
 }
 
-/* Títulos */
-.header-text {
-    text-align: center;
-    margin-bottom: 20px;
-    margin-top: 10px;
+.modal-ano-content h3 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 5px;
 }
-.header-text h2 { color: rgba(214, 180, 232, 0.85); text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
-.header-text p { color: #aaa; font-size: 0.9rem; }
+.subtitulo-ano {
+    color: #aaa;
+    margin-bottom: 30px;
+}
 
-/* Grid 3x3 */
+.close-ano-btn {
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* Animaçãozinha de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- GRID E CARDS (MANTIDOS IGUAIS) --- */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -38,9 +103,8 @@ body {
     margin: 0 auto;
 }
 
-/* Cartões */
 .box-card {
-    aspect-ratio: 1 / 1; /* Quadrado perfeito */
+    aspect-ratio: 1 / 1; 
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
@@ -219,6 +283,9 @@ body {
     border: #4e188480 1px solid;
 }
 
-
+main, nav, .header-text, .botoes-anos-container {
+    position: relative;
+    z-index: 10; /* Garante que o texto fique legível acima da neve */
+}
 
 

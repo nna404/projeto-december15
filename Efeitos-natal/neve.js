@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", function() {
     style.innerHTML = `
         .snowflake {
             position: fixed;
-            top: -10px;
+            top: -20px;
             color: #ffffffb4;
             font-size: 1em;
             font-family: Arial;
             text-shadow: 0 0 1px #000;
-            z-index: 1; /* Fica por cima de tudo */
+            z-index: -1; /* Fica por cima de tudo */
             user-select: none;
             pointer-events: none; /* O clique "atravessa" a neve */
             cursor: default;
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         @keyframes fall {
             0% { transform: translateY(-10vh) translateX(0); opacity: 1; }
-            100% { transform: translateY(110vh) translateX(20px); opacity: 0.3; }
+            100% { transform: translateY(110vh) translateX(20px); opacity: 0.2; }
         }
     `;
     document.head.appendChild(style);

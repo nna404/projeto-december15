@@ -36,9 +36,9 @@ body { background: radial-gradient(circle at center, #2c1a3a 0%, #000000 100%); 
     box-shadow: 0 0 15px rgba(217, 24, 245, 0.4);
 }
 
-.btn-ano.future {
-    opacity: 0.6;
-    border-color: #555;
+.btn-ano-active {
+    opacity: 1.0;
+    border: 1px solid rgba(217, 24, 245, 0.3)
 }
 
 /* --- MODAL DE ANO (Onde ficam os cards) --- */

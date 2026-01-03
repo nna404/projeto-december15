@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const closeTextBtn = document.querySelector('.close-btn');
 
     // Lista dos IDs que são CARTAS
-    const idsCartas = ['1', '5', '12'];
+    const idsCartas = ['1', '5', '12', '26-1', '26-2']; 
 
     boxes.forEach(box => {
         box.addEventListener('click', function() {

@@ -1,423 +1,285 @@
 @charset "UTF-8";
 
-/* --- O Botão/Card que chama o texto --- */
+/* --- 1. VARIÁVEIS (Paleta Golden Constellation) --- */
+:root {
+    --bg-deep: #050510;
+    --bg-light: #181a25;
+    
+    --gold-primary: #D4AF37;
+    --gold-light: #F2C94C;
+    --gold-glow: rgba(212, 175, 55, 0.3);
+    
+    --text-main: #EAEAEA;
+    --text-muted: #A0A0A0;
+    
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --error-red: #ff4d4d;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+
+body {
+    background: radial-gradient(ellipse at bottom, var(--bg-light) 0%, var(--bg-deep) 100%);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* --- 2. TÍTULO E BOTÃO DE GATILHO --- */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.textpag4 {
+    color: var(--gold-light);
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    text-shadow: 0 0 15px var(--gold-glow);
+    text-align: center;
+}
+
+/* O "Envelope" Dourado */
 .text-trigger-card {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
+    background: var(--glass-bg);
+    border: 1px solid var(--gold-primary);
+    border-radius: 4px;
     padding: 30px;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.2s, background 0.3s;
+    transition: all 0.4s ease;
     width: 100%;
-    max-width: 250px;
-    margin: 20px auto;
+    max-width: 300px;
+    position: relative;
+    overflow: hidden;
 }
 
 .text-trigger-card:hover {
+    background: rgba(212, 175, 55, 0.1);
     transform: translateY(-5px);
-    
-    box-shadow: 0 10px 20px rgba(29, 12, 1, 0.178); /* brilho roxo */
+    box-shadow: 0 0 30px var(--gold-glow);
 }
 
-.card-icon { font-size: 3rem; margin-bottom: 10px; }
-.card-title { font-weight: bold; color: var(--texth1); font-size: 1.2rem; }
-.card-subtitle { color: #aaa; font-size: 0.9rem; margin-top: 5px; }
-
-
-/* --- O MODAL DE TEXTO--- */
-.modal-text-overlay {
-    display: none; /* Começa escondido */
-    position: fixed;
-    z-index: 2000; /* Bem na frente de tudo */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Fundo escuro focado */
-    backdrop-filter: blur(5px);
-    
-    /* Centraliza a caixa de texto */
-    align-items: center;
-    justify-content: center;
-    animation: fadeIn 0.3s;
-}
-
-/* A Caixinha do Texto em si */
-.modal-text-box {
-    background: #1a1a1a;  
-    border: 1px solid var(--borderbrown); /* Borda roxa combinando com seu tema */
-    border-radius: 8px;
-    width: 90%;
-    max-width: 500px; /* Largura máxima de leitura */
-    max-height: 80vh; /* Altura máxima (80% da tela) */
-    padding: 25px;
-    position: relative;
-    box-shadow: 0 0 20px var(--growncolor);
-    
-    display: flex;
-    flex-direction: column;
-}
-
-strong {
-    color: #FFD700;
-}
-
-/* Título dentro do modal */
-.modal-text-box h3 {
-    color: var(--texth1);
-    margin-bottom: 15px;
-    text-align: center;
-    border-bottom: 1px solid rgba(139,90,43,0.3);
-    padding-bottom: 10px;
-}
-
-/* Área de Rolagem do Texto */
-.scrollable-content {
-    overflow-y: auto; 
-    color: #e0e0e0;
-    font-size: 1rem;
-    line-height: 1.6; 
-    padding-right: 10px; 
-    text-indent: 1.5em;
-    
-}
-
-/* Personaliza a barra de rolagem do texto */
-.scrollable-content::-webkit-scrollbar { width: 6px; }
-.scrollable-content::-webkit-scrollbar-thumb { background: #555; border-radius: 8px; }
-
-/* Botão Fechar (X) */
-.close-btn-text {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-}
-.close-btn-text:hover { color: #fff; }
-
-@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
-
-
-
-* {
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Montserrat', sans-serif;
-    -webkit-font-smoothing: antialiased;
-
-    box-sizing: border-box;
-}
-
-:root {
-    --borderbrown: #302216;
-    --textp: #Cca874;
-    --texth1: #D99E6A;
-    --growncolor : rgba(217, 158, 106, 0.4);
-    --fonte0: Arial, Helvetica, sans-serif;
-    --border-brown: #302216;
-    --glow-color: rgba(83, 62, 39, 0.4);
-}
-
-body {
-    font-family: Arial, sans-serif;
-
-    background: radial-gradient(circle at center, #2c1814 0%, #000000 100%);
-    height: 100dvh;
-    min-height: 100vh;
-    width: 100vw;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    overflow: hidden;
-    
-}
-
-
-#cima {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-}
-
-#botao-home {
-    display: block;
-
-    margin: 0;
-    padding: 10px 20px;
-    
-    color: rgba(255, 255, 255, 0.932);
-    text-decoration: none;
-    border-radius: 20px;
-    text-align: center;
-    width: 95px;
-    transition: all 0.3s ease;
-    border: #2c1814 1px solid;
-}
-
-#botao-home:hover {
-    border-color: rgb(77, 35, 19);
-    box-shadow: 0 0 3px rgb(77, 35, 19);
-}
-
-.baixo {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 20px 0;
-}
-
-
-#botao-voltar {
-    padding: 10px 20px;
-    margin: 0;
-    
-    color: white;
-    text-decoration: none;
-    border-radius: 20px;
-    text-align: center;
-    width: 110px;
-    
-    transition: all 0.3s ease;
-    border: #2c1814 1px solid;
-    
-}
-
-#botao-voltar:hover {
-    border-color: rgb(77, 35, 19);
-    box-shadow: 0 0 3px rgb(77, 35, 19);
-    
-}
-
-h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #f0f0f0f3;
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-    margin-top: 2px;
-}
-
-
-
-article.textpag4-2 > p {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #f0f0f0c4;
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-    margin-top: 20px;
-}
-
-main {
-    border-radius: 15px;
-    width: 90%;
-    max-width: 330px;
-    height: auto;
-    max-height: 60vh;
-
-    overflow-y: auto;
-    overflow-x: hidden;
-   
-    box-shadow: 1px 2px 2px rgba(17, 10, 25, 0.85);
-    padding: 20px;
-    margin: 20px 0;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: var(--borderbrown) 1px solid;
-}
-
-#title-text {
-    text-align: center;
-    margin-bottom: 15px;
-    color: #ffffff;
+.card-title {
     font-size: 1.2rem;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 400;
 }
 
-#love-u {
-    text-align: right;
-    margin-top: 15px;
-    color: #fd9eac;
-    font-size: 0.6rem;
-}
-
-#signature {
-    text-align: left;
-    margin-top: 10px;
-    color: #9e31b4;
+.card-subtitle {
     font-size: 0.8rem;
+    color: var(--gold-primary);
+    margin-top: 10px;
+    font-style: italic;
 }
 
-/* Reaproveitando estilos do modal, mas com ajustes pra senha */
-.modal-overlay {
+/* --- 3. MODAL DA CARTA (O Pergaminho Digital) --- */
+.modal-text-overlay {
     display: none;
     position: fixed;
-    z-index: 3000; /* Bem na frente */
-    left: 0;
-    top: 0;
+    z-index: 2000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.5s;
+}
+
+.modal-text-box {
+    background: linear-gradient(145deg, #151520, #0a0a10);
+    border: 1px solid var(--gold-primary);
+    border-radius: 2px; /* Estilo papel */
+    width: 90%;
+    max-width: 600px; /* Um pouco mais largo pra leitura */
+    max-height: 85vh;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 0 60px rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Título da Carta */
+#title-text p {
+    font-family: 'Times New Roman', serif;
+    font-size: 2rem;
+    color: var(--gold-primary);
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 20px;
+    font-style: italic;
+}
+
+/* O Texto da Carta */
+.scrollable-content {
+    overflow-y: auto;
+    color: var(--text-main);
+    font-size: 1rem;
+    line-height: 1.8; /* Espaçamento bom para ler */
+    padding-right: 15px;
+    text-align: justify;
+    font-weight: 300;
+}
+
+/* Scrollbar fina */
+.scrollable-content::-webkit-scrollbar { width: 4px; }
+.scrollable-content::-webkit-scrollbar-thumb { background: var(--gold-primary); border-radius: 4px; }
+.scrollable-content::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
+
+/* Destaques no texto */
+strong { color: var(--gold-light); font-weight: 600; text-shadow: 0 0 5px var(--gold-glow); }
+
+/* Assinatura e Love U */
+#signature, #love-u {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+#signature { text-align: right; color: var(--gold-primary); }
+#love-u { text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;}
+
+/* --- 4. ÁREA DE VÍDEO (Cinema) --- */
+.video-header {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 30px;
+}
+
+.video-header h2 {
+    color: var(--gold-light);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.video-header p { color: var(--text-muted); font-size: 0.8rem; font-style: italic; }
+
+.cinema-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(0,0,0,0.3);
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid var(--glass-border);
+}
+
+video {
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(5px);
+    border-radius: 2px;
+    border: 1px solid var(--gold-glow);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: 0.3s;
+}
+video:hover { border-color: var(--gold-primary); }
+
+/* --- 5. MODAL DE SENHA --- */
+.modal-overlay {
+    display: none; /* Controlado via JS */
+    position: fixed;
+    z-index: 3000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.95);
+    backdrop-filter: blur(10px);
     align-items: center;
     justify-content: center;
     animation: fadeIn 0.3s;
 }
 
 .password-box {
-    background: #1a1a1a;
-    border-radius: 20px;
-    padding: 30px;
+    background: var(--bg-deep);
+    border: 1px solid var(--gold-primary);
+    border-radius: 4px;
+    padding: 40px;
     width: 90%;
-    max-width: 350px; /* Pequenininho e compacto */
+    max-width: 400px;
     text-align: center;
-    box-shadow: 0 0 20px rgba(217, 24, 245, 0.2);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
+    display: flex; flex-direction: column; gap: 15px;
     position: relative;
 }
 
-.password-box h3 { color: #fff; margin-bottom: 5px; }
-.password-box p { color: #ccc; font-size: 0.9rem; }
+.password-box h3 { color: var(--gold-light); text-transform: uppercase; letter-spacing: 2px; font-size: 1.2rem; }
+.password-box p { color: var(--text-muted); font-size: 0.9rem; }
 
-/* O Input da Senha */
 #inputSenha {
     padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #444;
-    background: #222;
-    color: #fff;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--glass-border);
+    color: var(--gold-light);
     text-align: center;
     font-size: 1.1rem;
     outline: none;
     transition: 0.3s;
+    width: 100%;
 }
+#inputSenha:focus { border-color: var(--gold-primary); box-shadow: 0 0 10px var(--gold-glow); }
 
-
-
-/* Botão Confirmar */
 #btnConfirmarSenha {
-    padding: 10px;
-    border: none;
-    color: #fff;
-    border-radius: 8px;
-    background: #1a1a1a;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid var(--gold-primary);
+    color: var(--gold-primary);
     font-weight: bold;
     cursor: pointer;
-    transition: 0.2s;
-
-    border: 1px solid var(--border-brown);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
 }
+#btnConfirmarSenha:hover { background: var(--gold-primary); color: #000; }
 
-/* Mensagem de Erro (escondida por padrão) */
-.error-msg {
-    color: #ff4d4d !important; /* Vermelho alerta */
-    font-size: 0.85rem !important;
-    display: none; /* Começa invisível */
-}
+.error-msg { color: var(--error-red) !important; font-size: 0.8rem; display: none; }
 
-/* O X de fechar específico da senha */
-.close-btn-senha {
+/* Botões Fechar */
+.close-btn-text, .close-btn-senha {
     position: absolute;
-    top: 10px;
-    right: 15px;
-    color: #aaa;
-    font-size: 24px;
+    top: 15px; right: 20px;
+    color: var(--text-muted);
+    font-size: 30px;
     cursor: pointer;
+    transition: 0.2s;
+}
+.close-btn-text:hover, .close-btn-senha:hover { color: var(--gold-light); }
+
+/* --- NAVEGAÇÃO --- */
+.nav-container { display: flex; justify-content: center; padding: 20px; width: 100%; }
+
+#botao-home, #botao-voltar, #botao-avancar {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 5px;
+    transition: 0.3s;
+    margin: 0 15px;
 }
 
-.video-header {
-    text-align: center;
-    animation: fadeInDown 0.8s ease;
+#botao-home:hover, #botao-voltar:hover, #botao-avancar:hover {
+    color: var(--gold-primary);
+    border-bottom-color: var(--gold-primary);
 }
 
-.video-header h2 {
-    color: #D918F5; /* Roxo Neon */
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    text-shadow: 0 0 10px rgba(217, 24, 245, 0.3);
-}
-
-.video-header p {
-    color: #aaa;
-    font-size: 0.9rem;
-}
-
-/* --- O ESTILO DO PLAYER (CINEMA CARD) --- */
-.cinema-card {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.05); /* Efeito vidro */
-    backdrop-filter: blur(10px);
-    padding: 10px; /* Borda interna */
-    border-radius: 8px;
-    border: 1px solid rgba(217, 24, 245, 0.3); /* Borda roxa sutil */
-    
-    /* O BRILHO NEON */
-    box-shadow: 0 0 20px rgba(145, 48, 184, 0.2), 
-                inset 0 0 20px rgba(145, 48, 184, 0.1);
-    
-    animation: zoomIn 0.8s ease;
-}
-
-/* O Vídeo em si */
-video {
-    width: 100%;
-    border-radius: 8px; /* Arredonda o vídeo pra acompanhar o card */
-    display: block;
-    outline: none;
-}
-
-
-
-/* --- CARD DE GATILHO (O botão de abrir a carta) --- */
-.text-trigger-card:hover {
-    box-shadow: 0 0px 3px var(--glow-color);
-}
-
-.card-subtitle {
-    color: #a67c52; /* Marrom claro */
-}
-
-/* --- MODAL DA SENHA --- */
-.password-box {
-    border: 1px solid var(--border-brown);
-    box-shadow: 0 0 15px var(--glow-color);
-}
-
-#inputSenha:focus {
-    border-color: #A0522D;
-    box-shadow: 0 0 8px var(--glow-color);
-}
-
-
-
-#btnConfirmarSenha:hover {
-    border: 1px solid #A0522D; /* Um marrom mais avermelhado no hover */
-}
-
-/* --- VÍDEO CARD --- */
-.cinema-card {
-    border: 1px solid var(--border-brown);
-    box-shadow: 0 0 20px var(--glow-color), 
-}
-
-.video-header h2 {
-    color: var(--texth1);
-    text-shadow: 0 0 10px var(--glow-color);
-}
+@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }

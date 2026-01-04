@@ -1,255 +1,191 @@
 @charset "UTF-8";
 
-/* --- CONFIGURAÇÃO DO AMBIENTE (REVISADO) --- */
-body {
-    background: radial-gradient(circle at center, #2c1a3a 0%, #000000 100%);
-    height: 100vh; /* Ocupa 100% da altura da tela */
-    height: 100dvh; /* Garante 100% real no mobile (desconsidera barra do navegador) */
-    margin: 0;
+/* --- 1. VARIÁVEIS (A mesma paleta do Pag000 para manter consistência) --- */
+:root {
+    --bg-deep: #050510;
+    --bg-light: #181a25;
     
-    /* FLEXBOX MAGIC */
-    display: flex;
-    flex-direction: column; /* Organiza tudo em coluna vertical */
-    align-items: center;    /* Centraliza horizontalmente */
-    justify-content: space-between; /* Empurra texto pro topo e flor pro fundo */
-    overflow: hidden;
+    --gold-primary: #D4AF37;       /* Ouro Clássico */
+    --gold-light: #F2C94C;         /* Ouro Brilhante */
+    --gold-dark: #aa8c2c;          /* Ouro Sombra */
+    --gold-glow: rgba(212, 175, 55, 0.4); 
+
+    --text-main: #EAEAEA;
+    --glass-border: rgba(255, 255, 255, 0.1);
 }
 
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
 
-
-h1.flower-title {
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    margin-top: 40px; /* Margem do topo relativa, não absoluta */
-    margin-bottom: 5px;
-    z-index: 100;
-    animation: pulsoCentralizadoh1 7s infinite ease-in-out;
-    /* Removemos position absolute, top, left e transform */
-}
-
-h3.flower-title {
-    color: #ffffffa4;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    font-size: 0.9rem;
-    margin: 0 0 10px 0; /* Margem pra separar do botão */
-    z-index: 100;
-    animation: pulsoCentralizadoh3 7s infinite ease-in-out;
-    /* Removemos position absolute */
-}
-
-/* --- BOTÃO VOLTAR (Agora flui com o texto) --- */
-.btn-sim {
-    /* Removemos position absolute, top, left */
-    z-index: 100;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.7);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    padding: 8px 15px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px);
-    transition: all 0.3s ease;
-    margin-bottom: 20px; /* Garante que não cole em nada abaixo */
-}
-
-.btn-sim:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border-color: #fff;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-}
-
-/* --- GRUPO DA FLOR (Fica na parte de baixo pelo justify-content: space-between) --- */
-.flower-wrapper {
-    position: relative; /* Mantém relative pro absolute interno funcionar */
-    /* Removemos bottom fixo agressivo, o flexbox cuida disso agora */
-    margin-bottom: -50px; /* Pequeno ajuste pra esconder o início do caule se precisar */
-    animation: sway 6s ease-in-out infinite alternate;
-    transform-origin: bottom center;
-    /* Flexbox vai empurrar isso pro final da tela */
-}
-
-/* --- CAULE --- */
-.stem {
-    width: 8px;
-    height: 300px;
-    background: linear-gradient(to right, #2e8b57, #3cb371);
-    margin: 0 auto;
-    border-radius: 10px;
-    position: relative;
-    z-index: 1;
-}
-
-/* --- FOLHAS (Mantive igual, pois é estrutura interna da flor) --- */
-.leaf {
-    position: absolute;
-    width: 60px;
-    height: 30px;
-    background: #2e8b57;
-    border-radius: 0 50px 0 50px;
-    z-index: 0;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
-}
-
-.leaf.left {
-    left: -50px;
-    top: 100px;
-    transform: rotate(-20deg);
-}
-
-.leaf.right {
-    right: -50px;
-    top: 160px;
-    transform: rotate(200deg);
-}
-
-/* --- CABEÇA DA FLOR --- */
-.flower-head {
-    position: absolute;
-    top: -60px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px;
-    height: 150px;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* --- PÉTALAS --- */
-.petal {
-    position: absolute;
-    width: 40px;
-    height: 100px;
-    background: linear-gradient(to top, #fff 40%, #f0f0f0 100%);
-    border-radius: 50% 50% 10% 10%;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    transform-origin: bottom center;
-    z-index: 1;
-}
-
-/* Posicionamento das 12 pétalas */
-.p1 { transform: rotate(0deg) translateY(-40px); }
-.p2 { transform: rotate(30deg) translateY(-40px); }
-.p3 { transform: rotate(60deg) translateY(-40px); }
-.p4 { transform: rotate(90deg) translateY(-40px); }
-.p5 { transform: rotate(120deg) translateY(-40px); }
-.p6 { transform: rotate(150deg) translateY(-40px); }
-.p7 { transform: rotate(180deg) translateY(-40px); }
-.p8 { transform: rotate(210deg) translateY(-40px); }
-.p9 { transform: rotate(240deg) translateY(-40px); }
-.p10 { transform: rotate(270deg) translateY(-40px); }
-.p11 { transform: rotate(300deg) translateY(-40px); }
-.p12 { transform: rotate(330deg) translateY(-40px); }
-
-/* --- PÉTALAS INTERNAS --- */
-.petal-inner {
-    position: absolute;
-    width: 30px;
-    height: 80px;
-    background: #fff;
-    border-radius: 50% 50% 10% 10%;
-    transform-origin: bottom center;
-    z-index: 2;
-    opacity: 0.9;
-    box-shadow: 0 0 2px rgba(0,0,0,0.1);
-}
-
-.pi1 { transform: rotate(15deg) translateY(-35px); }
-.pi2 { transform: rotate(45deg) translateY(-35px); }
-.pi3 { transform: rotate(75deg) translateY(-35px); }
-.pi4 { transform: rotate(105deg) translateY(-35px); }
-.pi5 { transform: rotate(135deg) translateY(-35px); }
-.pi6 { transform: rotate(165deg) translateY(-35px); }
-.pi7 { transform: rotate(195deg) translateY(-35px); }
-.pi8 { transform: rotate(225deg) translateY(-35px); }
-.pi9 { transform: rotate(255deg) translateY(-35px); }
-.pi10 { transform: rotate(285deg) translateY(-35px); }
-.pi11 { transform: rotate(315deg) translateY(-35px); }
-.pi12 { transform: rotate(345deg) translateY(-35px); }
-
-/* --- O MIOLO --- */
-.center {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    top: 82%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-image: 
-        radial-gradient(#8b4500 15%, transparent 16%), 
-        radial-gradient(circle, #ffd700 20%, #ffa500 100%);
-    background-size: 6px 6px, 100% 100%;
-    background-position: center;
-    background-repeat: repeat, no-repeat;
-    border-radius: 50%;
-    z-index: 10;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.3), 0 0 5px rgba(0,0,0,0.2);
-}
-
-/* --- ANIMAÇÕES --- */
-@keyframes sway {
-    0% { transform: rotate(3deg); }
-    100% { transform: rotate(-3deg); }
-}
-
-@keyframes pulse {
-    0% { opacity: 0.5; transform: translateX(-50%) scale(1); }
-    100% { opacity: 1; transform: translateX(-50%) scale(1.1); }
-}
-
-.glow {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-    top: -80px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 0;
-    animation: pulse 3s infinite alternate;
-}
-
-/* Ajustei as animações de texto pra não precisar de scale no transform base, 
-   já que o scale já é controlado pelo flexbox/tamanho da fonte se necessário */
-@keyframes pulsoCentralizadoh1 {
-    0%, 100% { transform: scale(1); text-shadow: 0 0 0px rgba(255, 255, 255, 0); }
-    50% { transform: scale(1.05); text-shadow: 0 0 3px rgba(255, 255, 255, 0.8); }
-}
-
-@keyframes pulsoCentralizadoh3 {
-    0%, 100% { transform: scale(1); text-shadow: 0 0 0px rgba(255, 255, 255, 0); }
-    50% { transform: scale(1.05); text-shadow: 0 0 0px rgba(255, 255, 255, 0.685); }
-}
-
-/* --- MEDIA QUERY PARA CELULARES PEQUENOS --- */
-
-@media (max-height: 700px) {
-    .flower-wrapper {
-        transform: scale(0.7); /* Diminui a flor para caber */
-        margin-bottom: -80px; /* Compensa o espaço sobrando */
-    }
-    h1.flower-title {
-        margin-top: 20px;
-        font-size: 1.5rem; /* Diminui a fonte se precisar */
-    }
-}
-
-
-.content-wrapper {
+body {
+    background: radial-gradient(ellipse at bottom, var(--bg-light) 0%, var(--bg-deep) 100%);
+    height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px; /* Espaço bonitinho entre título, subtítulo e botão */
-    margin-top: auto; /* Empurra pro centro/topo */
-    margin-bottom: auto; /* Empurra pro centro/baixo */
-    z-index: 100; /* Garante que fica na frente */
+    justify-content: center;
+    overflow: hidden; /* Nada de scroll na home */
 }
 
-/* O body continua com o space-between que te passei antes, 
-   mas agora ele só tem que lidar com 2 itens grandes */
+/* --- 2. TEXTOS E BOAS-VINDAS --- */
+.content-wrapper {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 250px; /* Joga o texto pra cima da flor */
+    animation: fadeInDown 1.5s ease;
+}
+
+.flower-title {
+    color: var(--gold-light);
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px var(--gold-glow);
+    margin-bottom: 15px;
+}
+
+h1.flower-title { font-size: 3rem; }
+h3.flower-title { font-size: 1rem; color: #ccc; margin-bottom: 40px; }
+
+/* Botão "Sim!" - Estilo Joia */
+.btn-sim {
+    display: inline-block;
+    padding: 12px 50px;
+    color: var(--gold-primary);
+    text-decoration: none;
+    border: 1px solid var(--gold-primary);
+    border-radius: 50px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.4s;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+}
+
+.btn-sim:hover {
+    background: var(--gold-primary);
+    color: #000;
+    box-shadow: 0 0 30px var(--gold-glow);
+    transform: scale(1.1);
+}
+
+/* --- 3. A FLOR DE OURO (Estrutura) --- */
+.flower-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1;
+}
+
+/* O Caule (Agora mais escuro/elegante) */
+.stem {
+    width: 6px;
+    height: 300px;
+    background: linear-gradient(to top, #000 0%, #2d4d2d 60%, #4a7c4a 100%);
+    position: relative;
+    border-radius: 10px;
+}
+
+.leaf {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #1a331a, #4a7c4a);
+    border-radius: 0 50% 0 50%;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.leaf.left { top: 100px; left: -40px; transform: rotate(-20deg); }
+.leaf.right { top: 160px; right: -40px; transform: rotate(190deg); }
+
+/* A Cabeça da Flor */
+.flower-head {
+    position: absolute;
+    top: -60px; /* Ajuste pra ficar na ponta do caule */
+    width: 120px;
+    height: 120px;
+    animation: floating 3s ease-in-out infinite;
+}
+
+.center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, #fff 0%, var(--gold-light) 100%);
+    border-radius: 50%;
+    z-index: 5;
+    box-shadow: 0 0 20px var(--gold-light);
+}
+
+/* --- 4. PÉTALAS (Geometria Reconstruída) --- */
+.petal, .petal-inner {
+    position: absolute;
+    left: 50%; bottom: 50%; /* Ponto de origem no centro */
+    transform-origin: bottom center;
+    border-radius: 50% 50% 0 0;
+    opacity: 0.9;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* Pétalas Externas (Ouro Escuro) */
+.petal {
+    width: 40px;
+    height: 90px;
+    background: linear-gradient(to top, var(--gold-dark), var(--gold-primary));
+    z-index: 2;
+}
+
+/* Pétalas Internas (Ouro Claro/Brilho) */
+.petal-inner {
+    width: 30px;
+    height: 70px;
+    background: linear-gradient(to top, var(--gold-primary), #fff);
+    z-index: 3;
+    bottom: 48%; /* Leve ajuste */
+}
+
+/* Rotação das 12 Pétalas (30 graus cada) */
+.p1  { transform: translateX(-50%) rotate(0deg); }
+.p2  { transform: translateX(-50%) rotate(30deg); }
+.p3  { transform: translateX(-50%) rotate(60deg); }
+.p4  { transform: translateX(-50%) rotate(90deg); }
+.p5  { transform: translateX(-50%) rotate(120deg); }
+.p6  { transform: translateX(-50%) rotate(150deg); }
+.p7  { transform: translateX(-50%) rotate(180deg); }
+.p8  { transform: translateX(-50%) rotate(210deg); }
+.p9  { transform: translateX(-50%) rotate(240deg); }
+.p10 { transform: translateX(-50%) rotate(270deg); }
+.p11 { transform: translateX(-50%) rotate(300deg); }
+.p12 { transform: translateX(-50%) rotate(330deg); }
+
+.pi1  { transform: translateX(-50%) rotate(15deg); }  /* Intercaladas */
+.pi2  { transform: translateX(-50%) rotate(45deg); }
+.pi3  { transform: translateX(-50%) rotate(75deg); }
+.pi4  { transform: translateX(-50%) rotate(105deg); }
+.pi5  { transform: translateX(-50%) rotate(135deg); }
+.pi6  { transform: translateX(-50%) rotate(165deg); }
+.pi7  { transform: translateX(-50%) rotate(195deg); }
+.pi8  { transform: translateX(-50%) rotate(225deg); }
+.pi9  { transform: translateX(-50%) rotate(255deg); }
+.pi10 { transform: translateX(-50%) rotate(285deg); }
+.pi11 { transform: translateX(-50%) rotate(315deg); }
+.pi12 { transform: translateX(-50%) rotate(345deg); }
+
+/* --- 5. ANIMAÇÕES --- */
+@keyframes floating {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,444 +1,349 @@
 @charset "UTF-8";
 
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+/* --- 1. VARIÁVEIS (Paleta Golden Constellation) --- */
+:root {
+    --bg-deep: #050510;
+    --bg-light: #181a25;
+    
+    --gold-primary: #D4AF37;       /* Ouro Clássico */
+    --gold-light: #F2C94C;         /* Ouro Brilhante */
+    --gold-glow: rgba(212, 175, 55, 0.3); /* Brilho suave */
+    
+    --text-main: #EAEAEA;
+    --text-muted: #A0A0A0;
+    
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --error-red: #ff4d4d;
 }
 
-:root {
-    --textshadow: #6F4675;
-    --textp: #B736CA;
-    --texth1: #D918F5;
-    --background : #322C33;
-    --fonte0: Arial, Helvetica, sans-serif;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    background: radial-gradient(circle at center, #2c1a3a 0%, #000000 100%);
-
-    height: 100vh;
-    width: 100vw;
-
+    background: radial-gradient(ellipse at bottom, var(--bg-light) 0%, var(--bg-deep) 100%);
+    width: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-
-   overflow-x: hidden;
-   overflow-y: auto;
-}
-
-#cima {
-    display: flex;
     justify-content: center;
-    margin: 0;
+    color: var(--text-main);
+    overflow-x: hidden;
 }
 
-#botao-home {
-    display: block;
-    margin: 0;
-    padding: 10px 20px;
-    
-    color: rgba(255, 255, 255, 0.932);
-    text-decoration: none;
-    border-radius: 20px;
-    text-align: center;
-    width: 95px;
-    transition: all 0.3s ease;
-    border: #4e188480 1px solid;
-}
-
-#botao-home:hover {
-    border: 1px solid #4E1884;
-    box-shadow: 0 0 3px #4E1884;
-}
-
-.baixo {
+/* --- 2. CARD DE VÍDEO (Cinema Luxo) --- */
+main {
+    width: 95%;
+    max-width: 500px;
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    flex-direction: column;
+    align-items: center;
     margin: 20px 0;
 }
 
-
-#botao-avancar, #botão-voltar {
-    padding: 10px 20px;
-    margin: 20px 0;
-    
-    color: rgba(255, 255, 255, 0.932);
-    text-decoration: none;
-    border-radius: 20px;
-    text-align: center;
-    width: 110px;
-    transition: all 0.3s ease;
-    border: #4e188480 1px solid;
-}
-
-#botao-avancar:hover {
-    border: 1px solid #4E1884;
-    box-shadow: 0 0 3px #4E1884;
-   
-}
-
-#botão-voltar:hover {
-    border: 1px solid #4E1884;
-    box-shadow: 0 0 3px #4E1884;
-   
-}
-
-
-
-article.textpag2 > p {
-    font-weight: 500;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #f0f0f0f3;
+/* Texto introdutório */
+article.textpag2 p {
+    font-size: 1rem;
+    color: var(--gold-primary);
     text-align: center;
     max-width: 600px;
-    margin: 0 auto;
-    margin-top: 2px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    text-transform: uppercase;
+    opacity: 0.8;
 }
 
-
-
-article.textpag2-2 > p {
-    font-weight: 500;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #f0f0f0c4;
+article.textpag2-2 p {
+    font-size: 1rem;
+    color: var(--gold-primary);
     text-align: center;
     max-width: 600px;
-    margin: 0 auto;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    text-transform: uppercase;
+    opacity: 0.8;
     margin-top: 20px;
 }
 
-
 .video-glass-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    
-    border-radius: 15px;
-    padding: 10px; 
-    width: 90%;    
-    max-width: 500px; 
-    margin: 20px auto;
-    
+    background: var(--glass-bg);
+    border: 1px solid var(--gold-glow);
+    border-radius: 4px; /* Cantos retos = Elegante */
+    padding: 15px; 
+    width: 100%;    
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+    gap: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.4s ease;
+    backdrop-filter: blur(5px);
+    position: relative;
 }
 
 .video-glass-card:hover { 
-    border-color: #D918F5;
-    transform: scale(1.02);
-    box-shadow: 0 0 5px rgba(217, 24, 245, 0.4);
+    border-color: var(--gold-primary);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
 }
 
-/* Títulos em cima do vídeo */
+/* Títulos do Vídeo */
 .video-glass-card .track-info h3 {
-    color: #fff;
-    font-size: 1.1rem;
-    margin-bottom: 2px;
-    text-align: center;
+    color: var(--text-main);
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
 }
 
 .video-glass-card .track-info p {
-    color: #bbb;
-    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 4px; /* Estilo minimalista */
     text-align: center;
-    margin-bottom: 10px;
 }
 
-/* O Vídeo em si */
+/* O Vídeo */
 .custom-video {
-    width: 100%;       /* Preenche o card */
-    border-radius: 10px; /* Bordas arredondadas pra combinar */
-    outline: none;
-    max-height: 60vh;  /* Não deixa ficar mais alto que a tela do celular */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    width: 100%;
+    border-radius: 2px;
+    border: 1px solid var(--glass-border);
+    max-height: 60vh;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
-main {
-    border-radius: 20px;
-    width: 95%;
-    max-width: 400px;
-    height: auto;
-    max-height: 65vh;
-
-    overflow-y: auto;
-   
-    box-shadow: 1px 2px 2px rgba(17, 0, 37, 0.85);
-    padding: 30px;
-    padding-top: 130px;
-    margin: 20px 0;
-
+/* --- 3. BOTÃO MISTERIOSO (?) --- */
+.text-trigger-card {
+    margin-top: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--gold-primary);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: #5c1d9ba2 1px solid ;
+    cursor: pointer;
+    transition: 0.4s;
+    background: transparent;
 }
 
-.text-trigger-card {
-    border: 1px solid #5c1d9ba2;
-    border-radius: 20px;
-    padding: 4px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s, background 0.3s;
-    width: 95px;
-    max-width: 200px;
-    margin: 20px auto;
-    height: 30px;
+/* Esconde textos antigos do botão pra ficar minimalista */
+.card-subtitle, .card-icon { display: none; } 
+
+.card-title { 
+    font-weight: 300; 
+    color: var(--gold-primary); 
+    font-size: 1.5rem; 
 }
 
 .text-trigger-card:hover {
-    transform: translateY(-5px);
-    background: #5c1d9ba2;
-    box-shadow: 0 10px 20px rgba(26, 1, 29, 0.2); /* Aquele brilho roxo maroto */
+    background: var(--gold-primary);
+    box-shadow: 0 0 20px var(--gold-glow);
+    transform: rotate(180deg);
 }
+.text-trigger-card:hover .card-title { color: #000; }
 
-.card-icon { font-size: 3rem; }
-.card-title { font-weight: bold; color: #fff; font-size: 1.2rem; }
-.card-subtitle { color: #fff; font-size: 0.9rem; }
-
-
-/* --- O MODAL DE TEXTO (A Mágica) --- */
-.modal-text-overlay {
-    display: none; /* Começa escondido */
+/* --- 4. MODAL DE TEXTO & LETRA (Gold Edition) --- */
+.modal-text-overlay, .modal-overlay {
+    display: none;
     position: fixed;
-    z-index: 2000; /* Bem na frente de tudo */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Fundo escuro focado */
-    backdrop-filter: blur(5px);
-    
-    /* Centraliza a caixa de texto */
+    z-index: 2000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
     align-items: center;
     justify-content: center;
-    animation: fadeIn 0.3s;
+    animation: fadeIn 0.5s;
 }
 
-/* A Caixinha do Texto em si */
-.modal-text-box {
-    
-    border: 1px solid #D918F5; /* Borda roxa combinando com seu tema */
-    border-radius: 8px;
+.modal-text-box, .password-box {
+    background: linear-gradient(145deg, #151520, #0a0a10);
+    border: 1px solid var(--gold-glow);
+    border-radius: 2px;
     width: 90%;
-    max-width: 400px; /* Largura máxima de leitura */
-    max-height: 80vh; /* Altura máxima (80% da tela) */
-    padding: 25px;
-    box-shadow: 0 0 3px rgba(217, 24, 245, 0.3);
-    
+    max-width: 450px;
+    max-height: 85vh;
+    padding: 30px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
     position: relative;
     display: flex;
     flex-direction: column;
 }
 
+/* Título do Modal */
+#title-text p {
+    color: var(--gold-primary);
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 15px;
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+}
 
-
-
-/* Área de Rolagem do Texto */
+/* Conteúdo de Texto */
 .scrollable-content {
     overflow-y: auto; 
-    color: #e0e0e0;
+    color: var(--text-main);
     font-size: 1rem;
-    line-height: 1.6; 
+    line-height: 1.8; 
     padding-right: 10px; 
-    text-indent: 1.5em;
     text-align: justify;
-
 }
 
-/* Personaliza a barra de rolagem do texto */
-.scrollable-content::-webkit-scrollbar { width: 6px; }
-.scrollable-content::-webkit-scrollbar-thumb { background: #555; border-radius: 8px; }
-
-/* Botão Fechar (X) */
-.close-btn-text {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-}
-.close-btn-text:hover { color: #fff; }
-
-@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
-
-
+/* Caixa da Música (Player e Letra) */
 #box-lyrics {
-    border: #D918F5 1px solid;
-    border-radius: 8px;
-    margin: 10px 0;
-
-}
-
-.lyrics-container {
-    height: 300px; /* Altura da caixa de letra */
-    overflow-y: auto; /* Rolagem automática */
+    border: 1px solid var(--glass-border);
     background: rgba(0,0,0,0.3);
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    margin-top: 15px;
-    scroll-behavior: smooth; /* Rolagem suave */
-
-}
-
-.line {
-    font-size: 1rem;
-    color: #888; /* Cor da letra "apagada" */
-    margin: 15px 0;
-    transition: all 0.2s ease; /* Animação da troca */
-    opacity: 0.6;
-}
-
-
-.line.active {
-    color: #D918F5; /* Sua cor roxa neon */
-    font-size: 1rem; /* Fica maior */
-    opacity: 1;
-    transform: scale(1.05);
-    
-    transform-origin: center;
+    border-radius: 4px;
+    margin: 20px 0;
+    padding: 15px;
 }
 
 #music-tittle-text {
-    color: #D918F5;
-    margin-top: 2px;
+    color: var(--gold-light);
     text-align: center;
-    font-size: 1.2rem;
-    font-weight: 500;
-    letter-spacing: 1px;
+    font-size: 1rem;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    opacity: 0.9;
-}   
-
-#title-text p {
-    color: #ffffff;
-    font-size: 1.6rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 7px;
-    
-
+    margin-bottom: 10px;
 }
 
+/* Player de Áudio (Tentativa de deixar dourado via filtro) */
 audio {
     width: 100%;
-    height: 40px;
-    margin-bottom: 5px;
+    height: 35px;
+    margin-bottom: 15px;
     outline: none;
-    /* Mágica: Inverte (fica preto) e gira a cor pra tentar achar o roxo/rosa */
-    filter: invert(100%) sepia(20%) saturate(500%) hue-rotate(260deg);
-    border-radius: 8px;
-    opacity: 0.9;
+    filter: sepia(100%) saturate(150%) hue-rotate(10deg) contrast(1.2); /* Efeito Sépia/Ouro */
+    opacity: 0.8;
+    border-radius: 4px;
 }
 
-/* Reaproveitando estilos do modal, mas com ajustes pra senha */
-.modal-overlay {
-    display: none;
-    position: fixed;
-    z-index: 3000; /* Bem na frente */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(5px);
-    align-items: center;
-    justify-content: center;
-    animation: fadeIn 0.3s;
-}
-
-.password-box {
-
-    border: 1px solid #9130b8;
-    border-radius: 15px;
-    padding: 30px;
-    width: 90%;
-    max-width: 350px; /* Pequenininho e compacto */
+/* Container da Letra */
+.lyrics-container {
+    height: 200px;
+    overflow-y: auto;
     text-align: center;
-    box-shadow: 0 0 20px rgba(217, 24, 245, 0.2);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    position: relative;
+    scroll-behavior: smooth;
+    border-top: 1px solid var(--glass-border);
+    padding: 15px 5px; /* Reduzi o padding lateral pra dar mais espaço pro texto */
+    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
 }
 
-.password-box h3 { color: #fff; margin-bottom: 5px; }
-.password-box p { color: #ccc; font-size: 0.9rem; }
+.line {
+    font-size: 0.85rem; /* Fonte menor pra caber na linha */
+    color: var(--text-muted);
+    margin: 8px 0; /* Menos espaçamento vertical */
+    transition: all 0.3s ease;
+    opacity: 0.5;
+    white-space: nowrap; /* Força o texto a não quebrar de jeito nenhum */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Se for MUITO grande, põe "..." */
+}
 
-/* O Input da Senha */
+/* Linha Ativa (Destaque Dourado) */
+.line.active {
+    color: var(--gold-light);
+    font-size: 0.85rem; /* Aumenta bem pouquinho */
+    opacity: 1;
+    text-shadow: 0 0 10px var(--gold-glow);
+    transform: scale(1.02); /* Zoom suave pra não estourar a tela */
+}
+
+/* Citação Final (Strong) */
+strong {
+    display: block;
+    margin-top: 20px;
+    color: var(--gold-primary);
+    text-align: center;
+    font-family: 'Times New Roman', serif !important;
+    font-style: italic;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 20px;
+}
+strong p { margin-bottom: 10px; }
+
+/* --- 5. MODAL DE SENHA --- */
+.password-box { 
+    max-width: 350px; 
+    align-items: center; 
+    text-align: center;
+}
+
+.password-box h3 {
+    color: var(--gold-light);
+    margin-bottom: 10px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
 #inputSenha {
     padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #444;
-    background: #222;
-    color: #fff;
+    border-radius: 4px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.05);
+    color: var(--gold-light);
     text-align: center;
     font-size: 1.1rem;
     outline: none;
     transition: 0.3s;
+    width: 100%;
+    margin: 15px 0;
 }
+#inputSenha:focus { border-color: var(--gold-primary); box-shadow: 0 0 10px var(--gold-glow); }
 
-#inputSenha:focus {
-    border-color: #9130b8;
-    box-shadow: 0 0 8px rgba(217, 24, 245, 0.4);
-}
-
-/* Botão Confirmar */
 #btnConfirmarSenha {
-    padding: 10px;
-    border: #9230b8be 1px solid;
-    border-radius: 20px;
-    background: #000000;
-    color: #fff;
-    font-weight: bold;
+    padding: 10px 30px;
+    border: 1px solid var(--gold-primary);
+    background: transparent;
+    color: var(--gold-primary);
     cursor: pointer;
     transition: 0.2s;
-
-     font-family: 'Montserrat', sans-serif;
-    -webkit-font-smoothing: antialiased;
-
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
+#btnConfirmarSenha:hover { background: var(--gold-primary); color: #000; }
 
-#btnConfirmarSenha:hover { border: 1px solid #b012c7; }
+.error-msg { color: var(--error-red) !important; font-size: 0.8rem; display: none; margin-top: 5px; }
 
-/* Mensagem de Erro (escondida por padrão) */
-.error-msg {
-    color: #ff4d4d !important; /* Vermelho alerta */
-    font-size: 0.85rem !important;
-    display: none; /* Começa invisível */
-}
-
-/* O X de fechar específico da senha */
-.close-btn-senha {
+/* Botões Fechar */
+.close-btn-text, .close-btn-senha {
     position: absolute;
-    top: 10px;
-    right: 15px;
-    color: #aaa;
+    top: 15px; right: 20px;
+    color: var(--text-muted);
     font-size: 24px;
     cursor: pointer;
+    transition: 0.2s;
+}
+.close-btn-text:hover, .close-btn-senha:hover { color: var(--gold-light); }
+
+/* --- NAVEGAÇÃO --- */
+.cima, .baixo { display: flex; justify-content: center; margin: 20px 0; width: 100%; }
+
+#botao-home, #botao-voltar, #botao-avancar {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 5px;
+    transition: 0.3s;
+    margin: 0 15px;
 }
 
-
-
-strong {
-    color: #fdd3fd;
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif !important;
+#botao-home:hover, #botao-voltar:hover, #botao-avancar:hover {
+    color: var(--gold-primary);
+    border-bottom-color: var(--gold-primary);
 }
+
+@keyframes fadeIn { from {opacity: 0; transform: scale(0.95);} to {opacity: 1; transform: scale(1);} }

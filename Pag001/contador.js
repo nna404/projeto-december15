@@ -1,7 +1,7 @@
 function atualizarContador() {
     
-    // new Date(ano, mês-1, dia). Mês 2 é Março (porque janeiro é 0).
-    // Isso garante que ele pegue o fuso horário local e não UTC.
+    // Data de início: 22 de março de 2025, meia-noite
+    
     const start = new Date(2025, 2, 22, 0, 0, 0); 
     const now = new Date();
 

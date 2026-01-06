@@ -83,10 +83,10 @@ h3.flower-title { font-size: 1rem; color: #ccc; margin-bottom: 40px; }
     z-index: 1;
 }
 
-/* O Caule (Agora mais escuro/elegante) */
+/* O Caule (Agora mais escuro) */
 .stem {
     width: 6px;
-    height: 300px;
+    height: 270px;
     background: linear-gradient(to top, #000 0%, #2d4d2d 60%, #4a7c4a 100%);
     position: relative;
     border-radius: 10px;
@@ -102,7 +102,7 @@ h3.flower-title { font-size: 1rem; color: #ccc; margin-bottom: 40px; }
 }
 
 .leaf.left { top: 100px; left: -40px; transform: rotate(-20deg); }
-.leaf.right { top: 160px; right: -40px; transform: rotate(190deg); }
+.leaf.right { top: 160px; right: -35px; transform: rotate(185deg); }
 
 /* A Cabeça da Flor */
 .flower-head {

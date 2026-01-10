@@ -38,7 +38,6 @@ body {
 
 /* Títulos da Home */
 .header-text { text-align: center; margin-bottom: 40px; margin-top: 10px; }
-
 .header-text h2 { 
     color: var(--gold-light); /* Título agora é Dourado */
     text-shadow: 0 0 15px var(--gold-glow); 
@@ -304,7 +303,19 @@ body {
     margin: 20px 0;
 }
 
-#botao-home, #botao-avancar {
+#botao-home {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 5px;
+    transition: 0.3s;
+    margin: 0 15px;
+}
+
+#botao-avancar {
     color: var(--text-muted);
     text-decoration: none;
     font-size: 0.8rem;

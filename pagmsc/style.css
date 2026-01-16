@@ -1,0 +1,280 @@
+@charset "UTF-8";
+
+:root {
+    --bg-deep: #050510;
+    --bg-light: #181a25;
+    
+    --gold-primary: #D4AF37;
+    --gold-light: #F2C94C;
+    --gold-glow: rgba(212, 175, 55, 0.3);
+    
+    --text-main: #EAEAEA;
+    --text-muted: #A0A0A0;
+    
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* { margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: 'Montserrat', sans-serif; 
+    }
+
+
+
+.music-page-body {
+   overflow-y: hidden;
+    height: 100vh;
+    background: radial-gradient(ellipse at bottom, var(--bg-light) 0%, var(--bg-deep) 100%);
+    
+    /* ADICIONE ISSO AQUI: */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Centraliza o cartão na tela */
+.music-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1; 
+    
+    padding: 20px;
+    width: 100%; /* Garante largura total */
+    padding: 20px;
+}
+
+/* O Cartão que cai */
+.music-card {
+
+    border-radius: 30px;
+    padding: 30px 20px;
+    width: 100%;
+    max-width: 400px; /* Tamanho ideal para celular */
+    text-align: center;
+    
+
+ 
+}
+
+
+
+/* Apenas o disco vai receber esta classe */
+.queda-suave {
+    opacity: 0; /* Começa invisível */
+    animation: cairSuave 15s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+@keyframes cairSuave {
+    0% { 
+        transform: translateY(-80vh) scale(0.8); /* Vem de cima e menor */
+        opacity: 0; 
+    }
+    100% { 
+        transform: translateY(0) scale(1); /* Pousa no lugar e tamanho normal */
+        opacity: 1; 
+    }
+}
+/* --- ESTILO DO DISCO DE VINIL --- */
+
+.vinyl-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    
+    /* ISSO ESCONDE O DISCO INICIALMENTE */
+    opacity: 0; 
+    /* Joga ele para cima, garantindo que não ocupe espaço visual errado */
+    transform: translateY(-80vh) scale(0.8); 
+}
+
+.vinyl-record-container {
+    width: 220px;  /* DIMINUI DE 300PX PARA 220PX */
+    height: 220px; /* DIMINUI DE 300PX PARA 220PX */
+    margin: 0 auto; /* Garante que fique centralizado */
+    
+    position: relative;
+    border-radius: 50%;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6); 
+    transition: transform 1s ease-out; 
+}
+/* A classe que faz TUDO girar */
+.spinning {
+    animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* A parte preta com as ranhuras */
+.vinyl-grooves {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50%;
+    background-color: #111;
+    /* O segredo do vinil: gradiente radial repetido */
+    background-image: repeating-radial-gradient(
+        circle at center,
+        #1a1a1a 0,
+        #1a1a1a 2px,
+        #0a0a0a 3px,
+        #1a1a1a 4px
+    );
+    z-index: 1;
+}
+
+/* Um reflexo sutil para dar brilho de plástico */
+.vinyl-grooves::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50%;
+    background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+    pointer-events: none;
+}
+
+/* O rótulo central onde a imagem fica */
+.vinyl-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45%; /* O rótulo ocupa 45% do disco */
+    height: 45%;
+    border-radius: 50%;
+    overflow: hidden; /* Corta a imagem quadrada em círculo */
+    z-index: 2; /* Fica acima das ranhuras */
+
+
+    border: 2px solid var(--gold-primary);
+}
+
+/* A imagem dentro do rótulo */
+.album-art {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* O furinho central do disco */
+.vinyl-hole {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background-color: var(--background-dark); /* Cor do fundo da página */
+    border-radius: 50%;
+    z-index: 3; /* Fica acima de tudo */
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Títulos começam INVISÍVEIS e sem animação automática */
+.gold-title-large { 
+    color: var(--gold-primary); /* Dourado sólido */
+    font-size: 2rem; 
+    margin: 10px 0; 
+    opacity: 0;
+}
+
+.gold-subtitle { 
+    color: var(--text-muted); 
+    margin-bottom: 25px; 
+    font-weight: normal; 
+    opacity: 0; /* Começa invisível */
+}
+
+/* Criamos uma classe nova só para ativar a animação do texto */
+.animar-texto {
+    animation: cairSuave 14s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+
+.btn-gold-play {
+    background: transparent;
+    border: 0px solid ;
+    color: #D4AF37;
+    padding: 12px 40px;
+    border-radius: 50px; 
+    font-size: 1.2rem;
+
+    cursor: pointer;
+    margin-bottom: 30px; 
+    transition: 0.3s;
+}
+
+/* --- ESTILO DAS FRASES --- */
+.lyrics-viewport {
+    position: relative;
+    height: 120px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+.frase {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    
+   
+    opacity: 0; 
+    
+  
+    color: transparent; 
+    
+ 
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease, color 0s;
+    
+    pointer-events: none;
+    font-size: 1rem;
+}
+
+/* A linha ATIVA (Cantando agora) */
+.frase.ativa {
+    color: white !important;
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: 1;
+    z-index: 10;
+    
+    transform: translate(-50%, -50%) scale(1.1); 
+   
+    
+    /* Quando ganha a classe ativa, a cor pode demorar um pouquinho pra acender (suave) */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease, color 0.2s;
+}
+
+#botao-home, #botao-voltar, #botao-avancar {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 5px;
+    transition: 0.3s;
+    margin: 0 15px;
+}
+
+/* --- 5. NAVEGAÇÃO --- */
+.baixo {
+    display: flex; 
+    justify-content: center; 
+    width: 100%; 
+    padding: 20px; 
+
+}
+
+#botao-home:hover, #botao-voltar:hover, #botao-avancar:hover {
+    color: var(--gold-primary);
+    border-bottom: 1px solid var(--gold-primary);
+}

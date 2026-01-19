@@ -73,12 +73,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (audio.paused) {
             audio.play();
-            // MUDANÇA AQUI: Adiciona spinning ao disco completo
+            // Adiciona spinning ao disco completo
             recordSpinner.classList.add('spinning');
             playBtn.innerHTML = "⏸";
         } else {
             audio.pause();
-            // MUDANÇA AQUI: Remove spinning do disco completo
+            // Remove spinning do disco completo
             recordSpinner.classList.remove('spinning');
             playBtn.innerHTML = "▶";
         }

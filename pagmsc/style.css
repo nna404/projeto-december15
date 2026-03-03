@@ -24,11 +24,10 @@
 
 
 .music-page-body {
-   overflow-y: hidden;
-    height: 100vh;
+    /* não bloqueamos a rolagem para que a navegação não seja cortada */
+    /* overflow-y: hidden; */
+    min-height: 100vh;          /* mantém a altura mínima em vez de forçar exatamente 100vh */
     background: radial-gradient(ellipse at bottom, var(--bg-light) 0%, var(--bg-deep) 100%);
-    
-    /* ADICIONE ISSO AQUI: */
     display: flex;
     flex-direction: column;
 }
@@ -267,11 +266,17 @@
 
 /* --- 5. NAVEGAÇÃO --- */
 .baixo {
-    display: flex; 
-    justify-content: center; 
-    width: 100%; 
-    padding: 20px; 
-
+    /* fixa a barra de navegação no fim da tela para que esteja sempre à vista */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    background: var(--bg-light);   /* garante contraste com as letras */
+    z-index: 2;                    /* acima do vinil e das estrelas */
 }
 
 #botao-home:hover, #botao-voltar:hover, #botao-avancar:hover {
